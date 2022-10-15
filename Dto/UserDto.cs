@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace KroyBikroySite.Model
+namespace KroyBikroySite.Dto
 {
-    public class AddUserRequest
+    public class UserDto
     {
         [Required(ErrorMessage = "FirstName is required")]
         [StringLength(60, ErrorMessage = "FirstName can't be longer than 60 characters")]

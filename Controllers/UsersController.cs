@@ -1,4 +1,7 @@
-﻿using KroyBikroySite.Data;
+﻿using AutoMapper;
+using KroyBikroySite.Data;
+using KroyBikroySite.Dto;
+using KroyBikroySite.Interfaces;
 using KroyBikroySite.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,36 +13,26 @@ namespace KroyBikroySite.Controllers
     [ApiController]
     public class UsersController : Controller
     {
-        private readonly UserDbContext _dbContext;
+        private readonly IUserRepository userRepository;
+        private readonly IMapper mapper;
 
-        public UsersController(UserDbContext dbContext)
+        public UsersController(IUserRepository  userRepository,IMapper mapper)
         {
-            _dbContext=dbContext;
+            this.userRepository = userRepository;
+            this.mapper = mapper;
         }
-        [HttpGet]
-        public async Task<IActionResult> GetUser()
+        [HttpGet("GetAll")]
+        public async Task<ActionResult<User>> GetUsers()
         {
-            return Ok(await _dbContext.Users.ToListAsync());
-        }
-        [HttpPost]
-        public async Task<IActionResult> AddUser(AddUserRequest addUser)
-        {
-            var user = new User()
+        
+            var users = mapper.Map<List<UserDto>>(await userRepository
+                .GetUsers());
+            if (!ModelState.IsValid)
             {
-                UserId = Guid.NewGuid(),
-                FirstName = addUser.FirstName,
-                LastName = addUser.LastName,
-                Email = addUser.Email,
-                
-                PhoneNumber = addUser.PhoneNumber,
-                Address = addUser.Address,
-            };
-            await _dbContext.Users.AddAsync(user);
-
-           await _dbContext.SaveChangesAsync();
-
-            return Ok(user);
-
+                return BadRequest(ModelState);
+            }
+            return Ok(users);
         }
+    
     }
 }
