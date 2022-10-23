@@ -1,0 +1,12 @@
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\bin\Release\net6.0\DataAccessLayer.deps.json
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\bin\Release\net6.0\DataAccessLayer.dll
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\bin\Release\net6.0\DataAccessLayer.pdb
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.csproj.AssemblyReference.cache
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.AssemblyInfoInputs.cache
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.AssemblyInfo.cs
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.dll
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\refint\DataAccessLayer.dll
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\DataAccessLayer.pdb
+E:\Swe3.2\Project350\KroyBikroySite\KroyBikroySite\DataAccessLayer\obj\Release\net6.0\ref\DataAccessLayer.dll

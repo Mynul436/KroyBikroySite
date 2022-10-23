@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KroyBikroyBackend", "KroyBikroyBackend\KroyBikroyBackend.csproj", "{BB465F0B-9248-4CF7-B75C-6EAD44483D2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{FA892CDE-2A3A-4B62-A8DE-893C99759971}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BB465F0B-9248-4CF7-B75C-6EAD44483D2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB465F0B-9248-4CF7-B75C-6EAD44483D2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB465F0B-9248-4CF7-B75C-6EAD44483D2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA892CDE-2A3A-4B62-A8DE-893C99759971}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA892CDE-2A3A-4B62-A8DE-893C99759971}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA892CDE-2A3A-4B62-A8DE-893C99759971}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA892CDE-2A3A-4B62-A8DE-893C99759971}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
