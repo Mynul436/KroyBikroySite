@@ -1,0 +1,96 @@
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/appsettings.Development.json
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/appsettings.json
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/api
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/api.deps.json
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/api.runtimeconfig.json
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/api.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/ref/api.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/api.pdb
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/MySqlConnector.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/core.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/infrastructure.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/infrastructure.pdb
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/core.pdb
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.csproj.AssemblyReference.cache
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.GeneratedMSBuildEditorConfig.editorconfig
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.AssemblyInfoInputs.cache
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.AssemblyInfo.cs
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.csproj.CoreCompileInputs.cache
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.MvcApplicationPartsAssemblyInfo.cs
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.MvcApplicationPartsAssemblyInfo.cache
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/staticwebassets.build.json
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/staticwebassets.development.json
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/scopedcss/bundle/api.styles.css
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.csproj.CopyComplete
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/ref/api.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.pdb
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/obj/Debug/net6.0/api.genruntimeconfig.cache
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Humanizer.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/Autofac.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/AutoMapper.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/AutoMapper.Contrib.Autofac.DependencyInjection.dll
+/home/fahim/Documents/Excel_Technology/Assignment Test/Backend/api/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/appsettings.Development.json
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/appsettings.json
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/api
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/api.deps.json
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/api.runtimeconfig.json
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/api.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/ref/api.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/api.pdb
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Autofac.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/AutoMapper.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/AutoMapper.Contrib.Autofac.DependencyInjection.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Humanizer.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/MySqlConnector.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/core.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/infrastructure.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/infrastructure.pdb
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/core.pdb
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.csproj.AssemblyReference.cache
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.GeneratedMSBuildEditorConfig.editorconfig
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.AssemblyInfoInputs.cache
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.AssemblyInfo.cs
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.csproj.CoreCompileInputs.cache
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.MvcApplicationPartsAssemblyInfo.cs
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.MvcApplicationPartsAssemblyInfo.cache
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/staticwebassets.build.json
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/staticwebassets.development.json
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/scopedcss/bundle/api.styles.css
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.csproj.CopyComplete
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/ref/api.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.pdb
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/obj/Debug/net6.0/api.genruntimeconfig.cache
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.Abstractions.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
