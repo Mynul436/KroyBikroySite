@@ -8,6 +8,6 @@ namespace core.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Task<List<Product>> newsFeed();
+        Task<Object> newsFeed();
     }
 }

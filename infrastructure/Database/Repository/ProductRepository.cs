@@ -18,7 +18,7 @@ namespace infrastructure.Database.Repository
             _context = context;
         }
 
-        public async Task<List<Product>> newsFeed()
+        public async Task<Object> newsFeed()
         {
             var products = await _context.Products
                 .AsNoTracking()
@@ -26,6 +26,9 @@ namespace infrastructure.Database.Repository
                 .Include(x => x.Type)
                 .Include(a => a.Photos)
                 .ToListAsync();
+            
+
+            
 
             return products;
         }

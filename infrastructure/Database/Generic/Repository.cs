@@ -28,6 +28,11 @@ namespace infrastructure.Database.Generic
             return await _context.Set<T>().Where(expression).ToListAsync();
         }
 
+        public async Task<T> FindOneAsync(Expression<Func<T, bool>> filterExpression)
+        {
+            return await _context.Set<T>().FirstOrDefaultAsync(filterExpression);
+        }
+
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();

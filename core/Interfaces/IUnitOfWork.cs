@@ -11,6 +11,9 @@ namespace core.Interfaces
         IRepository<User> UserRepository {get;}
         IProductRepository ProductRepository{get;}
         IRepository<ProductType> TypeRepository{get;}
+
+        IRepository<Picture> ProductPictureRepository{get;}
+        
         ICustomerRepository Customer {get;}
         Task CommitAsync();
         Task RollbackAsync();        

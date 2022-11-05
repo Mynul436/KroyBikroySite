@@ -11,6 +11,8 @@ namespace core.Interfaces
         Task<T> GetByIdAsync(int id);
         Task<IEnumerable<T>> GetAllAsync();
         Task<IEnumerable<T>> FindAsync(Expression < Func < T, bool >> expression);
+
+        Task<T> FindOneAsync(Expression<Func<T, bool>> filterExpression);
         void AddAsync(T entity);
         void RemoveAsync(T entity);
         void UpdateAsync(T entity);

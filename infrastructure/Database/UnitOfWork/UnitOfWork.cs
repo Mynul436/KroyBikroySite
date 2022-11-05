@@ -22,6 +22,7 @@ namespace infrastructure.Database.UnitOfWork
         public IRepository<ProductType> TypeRepository => new Repository<ProductType>(_context);
 
         public IProductRepository ProductRepository {get; private set;}
+        public IRepository<Picture> ProductPictureRepository => new Repository<Picture>(_context);
 
         public async Task CommitAsync()
         {
