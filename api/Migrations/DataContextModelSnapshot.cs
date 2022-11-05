@@ -75,8 +75,7 @@ namespace api.Migrations
 
                     b.HasIndex("OwnnerId");
 
-                    b.HasIndex("TypeId")
-                        .IsUnique();
+                    b.HasIndex("TypeId");
 
                     b.ToTable("Products");
                 });
@@ -155,8 +154,8 @@ namespace api.Migrations
                         .IsRequired();
 
                     b.HasOne("core.Entities.ProductType", "Type")
-                        .WithOne("Product")
-                        .HasForeignKey("core.Entities.Product", "TypeId")
+                        .WithMany("Product")
+                        .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -172,8 +171,7 @@ namespace api.Migrations
 
             modelBuilder.Entity("core.Entities.ProductType", b =>
                 {
-                    b.Navigation("Product")
-                        .IsRequired();
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("core.Entities.User", b =>

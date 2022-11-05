@@ -11,6 +11,10 @@ namespace api.Helper
         public AutoMapperProfiles()
         {
             CreateMap<Signup, User>();
+
+            CreateMap<User, MemberDto>();
+
+            CreateMap<ProductDto, Product>();
         }
     }
 }

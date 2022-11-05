@@ -122,8 +122,7 @@ namespace api.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Products_TypeId",
                 table: "Products",
-                column: "TypeId",
-                unique: true);
+                column: "TypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

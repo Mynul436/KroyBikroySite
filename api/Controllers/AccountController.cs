@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using api.Dto;
+using api.Helper;
 using AutoMapper;
 using core.Entities;
 using core.Interfaces;
@@ -39,7 +40,10 @@ namespace api.Controllers
             _unitOfWork.UserRepository.AddAsync(user);
             await _unitOfWork.CommitAsync();
 
-            return Ok(_tokenService.CreateToken(user));
+            var res = _mapper.Map<MemberDto>(user);
+            res.Token = _tokenService.CreateToken(user).Item1;
+
+            return Ok(new Response<MemberDto>(res));
         }
     }
 }
