@@ -35,10 +35,9 @@ namespace api.Controllers.Users
             foreach(var feed in newsFeeds)
             {
                 var picture = await _unitOfWork.ProductPictureRepository.FindOneAsync(filter => filter.ProductId == feed.Id);
-                if(picture != null)
-                    feed.ProductPhoto = picture.photo;
+                feed.ProductPhoto = picture != null ?  picture.photo : null;
             }
-            
+
             return Ok(newsFeeds);
         }
 

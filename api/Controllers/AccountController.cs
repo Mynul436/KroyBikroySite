@@ -45,5 +45,33 @@ namespace api.Controllers
 
             return Ok(new Response<MemberDto>(res));
         }
+    
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> Login(Login login)
+        {
+            if(!ModelState.IsValid){
+                return BadRequest(new Response<String>("Wrong Formate"));
+            }
+
+            var user = await _unitOfWork.UserRepository.FindOneAsync(filter => filter.UserName == login.UserName);
+        
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(login.Password));
+
+            for(int i = 0; i < computedHash.Length; i++){
+                if(computedHash[i] != user.PasswordHash[i]){
+                    return BadRequest(new Response<String>("Wrong Password"));
+                }
+            }
+
+            var res = _mapper.Map<MemberDto>(user);
+            res.Token = _tokenService.CreateToken(user).Item1;
+            return Ok(new Response<MemberDto>(res));
+
+        }
+
+    
     }
 }
