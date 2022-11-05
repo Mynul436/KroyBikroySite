@@ -10,8 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers.Seller
 {
-     [ApiController]
+    [ApiController]
     [Route("[controller]")]
+    
     public class ProductController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
