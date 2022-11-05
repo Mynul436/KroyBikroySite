@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Dto;
 using AutoMapper;
+using core.Entities;
 using core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,8 +28,18 @@ namespace api.Controllers.Users
         [HttpGet]
         public async Task<IActionResult> NewsFeed()
         {
-            var products = await _unitOfWork.ProductRepository.newsFeed();
-            return Ok(products);
+            var products = await _unitOfWork.ProductRepository.GetAllAsync();
+
+            var newsFeeds = _mapper.Map<List<NewsFeedDto>>(products);
+
+            foreach(var feed in newsFeeds)
+            {
+                var picture = await _unitOfWork.ProductPictureRepository.FindOneAsync(filter => filter.ProductId == feed.Id);
+                if(picture != null)
+                    feed.ProductPhoto = picture.photo;
+            }
+            
+            return Ok(newsFeeds);
         }
 
     }
