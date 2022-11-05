@@ -6,6 +6,7 @@ using api.Dto;
 using AutoMapper;
 using core.Entities;
 using core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers.Users
@@ -28,15 +29,15 @@ namespace api.Controllers.Users
         [HttpGet]
         public async Task<IActionResult> NewsFeed()
         {
-            var products = await _unitOfWork.ProductRepository.GetAllAsync();
+            var products = await _unitOfWork.ProductRepository.newsFeed();
 
             var newsFeeds = _mapper.Map<List<NewsFeedDto>>(products);
 
-            foreach(var feed in newsFeeds)
-            {
-                var picture = await _unitOfWork.ProductPictureRepository.FindOneAsync(filter => filter.ProductId == feed.Id);
-                feed.ProductPhoto = picture != null ?  picture.photo : null;
-            }
+            // foreach(var feed in newsFeeds)
+            // {
+            //     var picture = await _unitOfWork.ProductPictureRepository.FindOneAsync(filter => filter.ProductId == feed.Id);
+            //     feed.ProductPhoto = picture != null ?  picture.photo : null;
+            // }
 
             return Ok(newsFeeds);
         }

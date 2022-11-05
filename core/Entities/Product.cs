@@ -14,7 +14,7 @@ namespace core.Entities
    
         public DateTime UsedTime {get;set;}
         public DateTime BiddingDuration{get;set;}
-        public IEnumerable<Picture> Photos{get;set;}
+        public ICollection<Photo> Photos { get; set; }
 
         public int TypeId {get;set;}
         public ProductType Type {get;set;}

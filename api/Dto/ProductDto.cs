@@ -16,6 +16,5 @@ namespace api.Dto
         public DateTime BiddingDuration{get;set;} = DateTime.Now;
         public int TypeId {get;set;}
         public IEnumerable<IFormFile> Pictures {get;set;}
-        public int OwnnerId {get;set;} 
     }
 }

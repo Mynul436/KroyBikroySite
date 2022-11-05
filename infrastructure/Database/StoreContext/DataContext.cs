@@ -26,7 +26,7 @@ namespace infrastructure.Database.StoreContext
                 .HasForeignKey(product => product.TypeId)
                 .OnDelete( DeleteBehavior.Cascade);
             
-            modelBuilder.Entity<Picture>()
+            modelBuilder.Entity<Photo>()
                 .HasOne( product => product.Product)
                 .WithMany( picture => picture.Photos)
                 .HasForeignKey( product => product.ProductId)
@@ -42,7 +42,7 @@ namespace infrastructure.Database.StoreContext
         public DbSet<User> Users{get;set;}
         public DbSet<Product> Products{get;set;}
         public DbSet<ProductType> ProductType{get;set;}
-        public DbSet<Picture> ProductPicture {get;set;}
+        public DbSet<Photo> ProductPicture {get;set;}
 
     }
 }

@@ -89,19 +89,23 @@ namespace api.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ProductPicture",
+                name: "Photos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    photo = table.Column<byte[]>(type: "longblob", nullable: false)
+                    Url = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsMain = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    PublicId = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProductPicture", x => x.Id);
+                    table.PrimaryKey("PK_Photos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProductPicture_Products_ProductId",
+                        name: "FK_Photos_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -110,8 +114,8 @@ namespace api.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductPicture_ProductId",
-                table: "ProductPicture",
+                name: "IX_Photos_ProductId",
+                table: "Photos",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
@@ -128,7 +132,7 @@ namespace api.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProductPicture");
+                name: "Photos");
 
             migrationBuilder.DropTable(
                 name: "Products");

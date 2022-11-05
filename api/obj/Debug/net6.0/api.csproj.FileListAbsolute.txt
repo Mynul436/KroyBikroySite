@@ -94,3 +94,5 @@
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/CloudinaryDotNet.dll
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/api/bin/Debug/net6.0/Newtonsoft.Json.dll

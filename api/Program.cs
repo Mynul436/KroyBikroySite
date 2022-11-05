@@ -1,6 +1,5 @@
 using System.Text.Json.Serialization;
 using api.Extensions;
-using api.Helper;
 using api.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,10 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDataBaseServices(builder.Configuration);
+builder.Services.AddCloudServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerService();
 
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -35,6 +36,7 @@ app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.UseCors("corsapp");
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -25,11 +25,8 @@ namespace infrastructure.Database.Repository
                 .AsQueryable()
                 .Include(x => x.Type)
                 .Include(a => a.Photos)
-                .ToListAsync();
-            
-
-            
-
+                .ToListAsync();           
+                 
             return products;
         }
     }

@@ -19,24 +19,31 @@ namespace api.Migrations
                 .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("core.Entities.Picture", b =>
+            modelBuilder.Entity("core.Entities.Photo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<byte[]>("photo")
+                    b.Property<string>("PublicId")
                         .IsRequired()
-                        .HasColumnType("longblob");
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductPicture");
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("core.Entities.Product", b =>
@@ -134,7 +141,7 @@ namespace api.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("core.Entities.Picture", b =>
+            modelBuilder.Entity("core.Entities.Photo", b =>
                 {
                     b.HasOne("core.Entities.Product", "Product")
                         .WithMany("Photos")
