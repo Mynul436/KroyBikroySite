@@ -13,7 +13,7 @@ namespace api.Controllers.Users
 {
      [ApiController]
     [Route("[controller]")]
-    // [Authorize]
+   
     public class RattingController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -29,6 +29,7 @@ namespace api.Controllers.Users
 
         [HttpPost]
         [Route("Add-rating")]
+         [Authorize]
         public async Task<IActionResult> AddRattingToProduct(ProductRatingDto ratingDto)
         {
             if(!await _unitOfWork.ProductRepository.isExitAsync(filter => filter.Id == ratingDto.ProductId))
