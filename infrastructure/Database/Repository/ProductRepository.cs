@@ -39,7 +39,7 @@ namespace infrastructure.Database.Repository
             var query = _context.Products.AsQueryable();
 
             var minPrices = userParams.LowPrices;
-            var maxPrices = userParams.HightPrices;
+            var maxPrices = userParams.HighPrices;
 
             query = query.Where( prices => prices.Prices >= minPrices && prices.Prices <= maxPrices);
 
@@ -54,7 +54,7 @@ namespace infrastructure.Database.Repository
             //     .Take(userParams.PageSize).ToListAsync();
 
             query = query.Include(type => type.Type).Include(photo => photo.Photos);
-            
+
             return await PagedList<Product>.CreateAsync(query, 
                     userParams.PageNumber, userParams.PageSize);
         }

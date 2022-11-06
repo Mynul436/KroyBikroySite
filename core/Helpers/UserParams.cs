@@ -4,7 +4,7 @@ namespace core.Helpers
     {
        public int TypeId {get;set;} = -1;
         public double LowPrices {get;set;} = 0;
-        public double HightPrices {get;set;} = 2000000;
+        public double HighPrices {get;set;} = 2000000;
         public bool OrderByBiddingDuration {get;set;} = true;
     }
 }
