@@ -15,7 +15,7 @@ namespace api.Controllers.Seller
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize(Roles = "Sellar")]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

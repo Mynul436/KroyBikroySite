@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Dto;
+using api.Helper;
 using AutoMapper;
 using core.Entities;
+using core.Helpers;
 using core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -26,20 +28,23 @@ namespace api.Controllers.Users
             _mapper = mapper;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> NewsFeed()
+         [HttpGet]
+         [Route("Type-list")]
+        public async Task<IActionResult> GetTypes()
         {
-            var products = await _unitOfWork.ProductRepository.newsFeed();
+            var productTypes = await _unitOfWork.TypeRepository.GetAllAsync();
 
+            return Ok(new Response<List<ProductTypeDto>>(_mapper.Map<List<ProductTypeDto>>(productTypes)));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> NewsFeed([FromQuery]core.Helpers.UserParams userParams)
+        {
+            var products = await _unitOfWork.ProductRepository.newsFeed(userParams);
             var newsFeeds = _mapper.Map<List<NewsFeedDto>>(products);
-
-            // foreach(var feed in newsFeeds)
-            // {
-            //     var picture = await _unitOfWork.ProductPictureRepository.FindOneAsync(filter => filter.ProductId == feed.Id);
-            //     feed.ProductPhoto = picture != null ?  picture.photo : null;
-            // }
-
-            return Ok(newsFeeds);
+                        
+           return Ok(new PagedResponse<List<NewsFeedDto>>(newsFeeds, products.CurrentPage, products.PageSize, products.TotalCount));
         }
 
     }
