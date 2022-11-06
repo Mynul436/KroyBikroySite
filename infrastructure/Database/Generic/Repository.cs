@@ -33,6 +33,20 @@ namespace infrastructure.Database.Generic
             return await _context.Set<T>().FirstOrDefaultAsync(filterExpression);
         }
 
+        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> filterExpression, List<Expression<Func<T, object>>> includeExpression)
+        {
+            var result = _context.Set<T>().AsQueryable();
+
+            result = result.Where(filterExpression);
+
+            foreach(var include in includeExpression)
+            {
+                result = result.Include(include);
+            }
+
+            return  await result.ToListAsync();
+        }
+
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();

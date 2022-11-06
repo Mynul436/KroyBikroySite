@@ -14,6 +14,9 @@ namespace core.Interfaces
 
         IRepository<Picture> ProductPictureRepository{get;}
         IRepository<ProductBid> ProductBidRepository {get;}
+
+
+        IRepository<ProductRatting> ProductRating {get;}
         
         ICustomerRepository Customer {get;}
         Task CommitAsync();

@@ -30,7 +30,7 @@ namespace infrastructure.Database.Repository
                 .Include( bidding => bidding.Biddings)
                 .Include( ratting => ratting.Rattings)
                 .FirstOrDefaultAsync(filter => filter.Id == Id);
-                
+
             return product;
         }
 

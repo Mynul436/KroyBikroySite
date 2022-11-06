@@ -72,27 +72,10 @@ namespace api.Controllers.Seller
 
 
 
-        [HttpPost]
-        [Route("Add-rating")]
-        public async Task<IActionResult> AddRattingToProduct(ProductRatingDto ratingDto)
-        {
-            if(!await _unitOfWork.ProductRepository.isExitAsync(filter => filter.Id == ratingDto.ProductId))
-                return BadRequest();
-            var rating = _mapper.Map<ProductRatting>(ratingDto);
+        
 
-            var user = await _unitOfWork.UserRepository.GetByIdAsync(User.GetUserId());
-            var product = await _unitOfWork.ProductRepository.GetByIdAsync(ratingDto.ProductId);
 
-            user.Rattings = new List<ProductRatting>();
-            product.Rattings = new List<ProductRatting>();
 
-            user.Rattings.Add(rating);
-            product.Rattings.Add(rating);
-
-            await _unitOfWork.CommitAsync();
-
-            return Ok(new Response<string>("Added Ratting"));
-        }
 
 
         private  async Task<byte[]> GetBytes(IFormFile formFile)

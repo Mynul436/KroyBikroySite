@@ -39,6 +39,19 @@ namespace infrastructure.Database.StoreContext
             //     .OnDelete(DeleteBehavior.Cascade);
 
 
+            modelBuilder.Entity<ProductRatting>()
+                .HasOne( user => user.User)
+                .WithMany( ratting => ratting.Rattings)
+                .HasForeignKey( key => key.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            
+            
+            modelBuilder.Entity<ProductRatting>()
+                .HasOne(product => product.Product)
+                .WithMany(ratting => ratting.Rattings)
+                .HasForeignKey(key => key.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<ProductBid>()
                 .HasOne( product => product.Product)
@@ -53,19 +66,7 @@ namespace infrastructure.Database.StoreContext
                 .OnDelete(DeleteBehavior.Cascade);
             
 
-            modelBuilder.Entity<ProductRatting>()
-                .HasOne( user => user.User)
-                .WithMany( ratting => ratting.Rattings)
-                .HasForeignKey( key => key.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
-            
-            
-            modelBuilder.Entity<ProductRatting>()
-                .HasOne(product => product.Product)
-                .WithMany(ratting => ratting.Rattings)
-                .HasForeignKey(key => key.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
-
+          
         }
            
         public DbSet<User> Users{get;set;}

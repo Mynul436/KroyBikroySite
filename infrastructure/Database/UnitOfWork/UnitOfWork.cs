@@ -27,6 +27,8 @@ namespace infrastructure.Database.UnitOfWork
 
         public IRepository<ProductBid> ProductBidRepository => new Repository<ProductBid>(_context);
 
+        public IRepository<ProductRatting> ProductRating => new Repository<ProductRatting>(_context);
+
         public async Task CommitAsync()
         {
             await _context.SaveChangesAsync();

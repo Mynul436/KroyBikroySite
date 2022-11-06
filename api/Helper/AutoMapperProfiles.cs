@@ -33,7 +33,6 @@ namespace api.Helper
                 .ForMember( dest => dest.Name, opt => opt.MapFrom(src => src.User.Name));
 
             
-
             CreateMap<ProductRatingDto, ProductRatting>();
 
             CreateMap<ProductRatting, ProductRatingViewDto>()

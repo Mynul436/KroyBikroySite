@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using api.Dto;
 using api.Helper;
@@ -61,14 +62,18 @@ namespace api.Controllers.Users
 
             viewProduct.ProductBidding = _mapper.Map<List<ProductBiddingViewDto>>(product.Biddings);
 
-            viewProduct.ProductRatting = _mapper.Map<List<ProductRatingViewDto>>(product.Rattings);
+
+            List<Expression<Func<ProductRatting, object>>> includeExpression = new List<Expression<Func<ProductRatting, object>>>();
+            
+            includeExpression.Add(filter => filter.User);
+            includeExpression.Add(filter => filter.Product);
+
+            viewProduct.ProductRatting = _mapper.Map<List<ProductRatingViewDto>>(await _unitOfWork.ProductRating.FindAsync(filter => filter.ProductId == Id , includeExpression));
 
 
             foreach(var photo in product.Photos){
                 viewProduct.ProductPhotos.Add(photo.Url);
             }
-
-
 
             return Ok(new Response<ProductViewDto>(viewProduct));
         }

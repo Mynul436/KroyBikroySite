@@ -13,6 +13,7 @@ namespace core.Interfaces
         Task<IEnumerable<T>> FindAsync(Expression < Func < T, bool >> expression);
 
         Task<T> FindOneAsync(Expression<Func<T, bool>> filterExpression);
+        Task<IEnumerable<T>> FindAsync(Expression<Func<T,bool>> filterExpression, List<Expression<Func<T, object>>> includeExpression);
         void AddAsync(T entity);
         void RemoveAsync(T entity);
         void UpdateAsync(T entity);
