@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using infrastructure.Database.StoreContext;
 
@@ -10,9 +11,10 @@ using infrastructure.Database.StoreContext;
 namespace api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221106114807_AddBidding")]
+    partial class AddBidding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,34 +114,6 @@ namespace api.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ProductBids");
-                });
-
-            modelBuilder.Entity("core.Entities.ProductRatting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Ratting")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ProductRatting");
                 });
 
             modelBuilder.Entity("core.Entities.ProductType", b =>
@@ -245,32 +219,11 @@ namespace api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("core.Entities.ProductRatting", b =>
-                {
-                    b.HasOne("core.Entities.Product", "Product")
-                        .WithMany("Rattings")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("core.Entities.User", "User")
-                        .WithMany("Rattings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("core.Entities.Product", b =>
                 {
                     b.Navigation("Biddings");
 
                     b.Navigation("Photos");
-
-                    b.Navigation("Rattings");
                 });
 
             modelBuilder.Entity("core.Entities.ProductType", b =>
@@ -283,8 +236,6 @@ namespace api.Migrations
                     b.Navigation("Biddings");
 
                     b.Navigation("Product");
-
-                    b.Navigation("Rattings");
                 });
 #pragma warning restore 612, 618
         }

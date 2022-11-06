@@ -21,6 +21,19 @@ namespace infrastructure.Database.Repository
             _context = context;
         }
 
+        public async Task<Product> GetProductById(int Id)
+        {
+            var product = await _context.Products
+                .Include( type => type.Type)
+                .Include( photo => photo.Photos)
+                .Include( ownner => ownner.Ownner)
+                .Include( bidding => bidding.Biddings)
+                .Include( ratting => ratting.Rattings)
+                .FirstOrDefaultAsync(filter => filter.Id == Id);
+                
+            return product;
+        }
+
         public async Task<Object> newsFeed()
         {
             var products = await _context.Products
@@ -46,12 +59,6 @@ namespace infrastructure.Database.Repository
             if(userParams.OrderByBiddingDuration) query = query.OrderByDescending( product => product.BiddingDuration);
 
             if(userParams.TypeId != -1) query = query.Where( product => product.TypeId == userParams.TypeId);
-
-            // var products = await query
-            //     .Include( type => type.Type)
-            //     .Include( photo => photo.Photos)
-            //     .Skip((userParams.PageNumber-1) * userParams.PageSize)
-            //     .Take(userParams.PageSize).ToListAsync();
 
             query = query.Include(type => type.Type).Include(photo => photo.Photos);
 

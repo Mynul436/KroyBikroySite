@@ -16,13 +16,13 @@ namespace api.Controllers.Users
 
      [ApiController]
     [Route("[controller]")]
-    public class NewsController : ControllerBase
+    public class HomeController : ControllerBase
     {
         
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
-        public NewsController(IUnitOfWork unitOfWork, IMapper mapper)
+        public HomeController(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
@@ -47,5 +47,30 @@ namespace api.Controllers.Users
            return Ok(new PagedResponse<List<NewsFeedDto>>(newsFeeds, products.CurrentPage, products.PageSize, products.TotalCount));
         }
 
+
+        [HttpGet]
+        [Route("product")]
+        public async Task<IActionResult> GetProduct( int Id)
+        {
+            var product = await _unitOfWork.ProductRepository.GetProductById(Id);
+
+            var viewProduct  = _mapper.Map<ProductViewDto>(product);
+
+
+            viewProduct.ProductOwnner = _mapper.Map<ProductOwnnerViewDto>(product.Ownner);
+
+            viewProduct.ProductBidding = _mapper.Map<List<ProductBiddingViewDto>>(product.Biddings);
+
+            viewProduct.ProductRatting = _mapper.Map<List<ProductRatingViewDto>>(product.Rattings);
+
+
+            foreach(var photo in product.Photos){
+                viewProduct.ProductPhotos.Add(photo.Url);
+            }
+
+
+
+            return Ok(new Response<ProductViewDto>(viewProduct));
+        }
     }
 }

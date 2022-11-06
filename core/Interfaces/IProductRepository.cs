@@ -11,5 +11,8 @@ namespace core.Interfaces
     {
         // userParams.PageNumber, userParams.PageSize, userParams, userParams.Type, userParams.LowPrices, userParams.HightPrices, userParams.OrderBy
         Task<PagedList<Product>> newsFeed(UserParams param);
+
+        Task<Product> GetProductById(int Id);
     }
+
 }

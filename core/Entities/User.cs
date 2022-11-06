@@ -14,10 +14,12 @@ namespace core.Entities
         public string Phone{get;set;}
 
         public string Role{get;set;} = "User";
-        
+
         public byte[] PasswordHash {get; set;}
         public byte[] PasswordSalt {get;set;}
 
         public IEnumerable<Product>? Product{get;set;}
+        public ICollection<ProductBid>? Biddings {get;set;}
+        public ICollection<ProductRatting>? Rattings{get;set;}
     }
 }

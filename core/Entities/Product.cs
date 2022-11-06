@@ -19,7 +19,11 @@ namespace core.Entities
         public int TypeId {get;set;}
         public ProductType Type {get;set;}
         public int OwnnerId {get;set;} 
-        public User Ownner{get;set;}
+        public User Ownner{get;set;} = null!;
+
+
+        public ICollection<ProductBid>? Biddings {get;set;}
+        public ICollection<ProductRatting>? Rattings{get;set;}
     }
 
 }
