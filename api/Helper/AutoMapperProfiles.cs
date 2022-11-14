@@ -40,6 +40,12 @@ namespace api.Helper
 
 
             CreateMap<ProductType, ProductTypeViewDto>();
+
+            CreateMap<Product, ProductBiddingView>()
+                .ForMember( dest => dest.BiddingPrices, opt => opt.MapFrom( src => src.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().Price))
+                .ForMember( dest => dest.CustomerId, opt => opt.MapFrom(src => src.Biddings.OrderByDescending(user => user.UserId).FirstOrDefault().UserId))
+
+                .ForMember(dest => dest.CustomerName, opt => opt.MapFrom(src => src.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().User.Name));
         }
     }
 }

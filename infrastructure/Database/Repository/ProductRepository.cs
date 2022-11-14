@@ -24,22 +24,12 @@ namespace infrastructure.Database.Repository
         public async Task<PagedList<Product>> GetBiddingProduct(int Id, PaginationParams param)
         {
             var query = _context.Products.AsQueryable();
-
-            query = query.Where(filter => filter.OwnnerId == Id);
             
+            query = query.Where(filter => filter.OwnnerId == Id);
+            query = query.Where( filter => filter.Biddings.Count() > 0);
+
             var products = await PagedList<Product>.CreateAsync(query, 
                     param.PageNumber, param.PageSize);
-
-            var maxBiding = _context.ProductBids.AsQueryable();
-            
-
-            foreach( var product in products){
-                var bid = await maxBiding.Where( filter => filter.ProductId == product.Id)
-                   .OrderBy(x => x.Price).SingleOrDefaultAsync();
-                
-                
-                if(bid != null) product.Biddings.Add(bid);
-            }
 
             return products;
         }

@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using api.Dto;
 using api.Extensions;
 
@@ -44,9 +45,22 @@ namespace api.Controllers.Seller
             var products = await _unitOfWork.ProductRepository.GetBiddingProduct(16, filter);
 
             foreach(var product in products){
-                
+
+                List<Expression<Func<ProductBid, object>>> includeExpression = new List<Expression<Func<ProductBid, object>>>();
+
+                includeExpression.Add(filter => filter.User);
+
+                var bidUser = await _unitOfWork.ProductBidRepository.FindAsync(filter => filter.ProductId == product.Id, includeExpression);
+                product.Biddings.Concat(bidUser);
             }
-            return Ok(new Helper.PagedResponse<List<Product>>(products, products.CurrentPage, products.PageSize, products.TotalCount));
+
+            var productLists = new List<ProductBiddingView>();
+
+            foreach(var product in products){    
+                productLists.Add(_mapper.Map<ProductBiddingView>(product));
+            }
+
+            return Ok(new Helper.PagedResponse<List<ProductBiddingView>>(productLists, products.CurrentPage, products.PageSize, products.TotalCount));
         }
         
 
@@ -68,7 +82,6 @@ namespace api.Controllers.Seller
                 var cloud = await _photoService.AddPhotoAsync(file);
                 var photo = new Photo
                 {
-                    
                     Url = cloud.SecureUri.AbsoluteUri,
                     PublicId = cloud.PublicId
                 };
