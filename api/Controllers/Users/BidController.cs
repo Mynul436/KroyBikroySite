@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.Dto;
 using api.Extensions;
 using AutoMapper;
@@ -9,6 +5,7 @@ using core.Entities;
 using core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace api.Controllers.Users
 {
@@ -25,10 +22,6 @@ namespace api.Controllers.Users
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-
-
-       
-
 
         [HttpPost]
         public async Task<IActionResult> AddBidToProduct(ProductBitDto productBitDto)

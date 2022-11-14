@@ -1,21 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.Dto;
 using api.Extensions;
 using api.Helper;
 using AutoMapper;
 using core.Entities;
 using core.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers.Seller
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -55,6 +49,7 @@ namespace api.Controllers.Seller
                 var cloud = await _photoService.AddPhotoAsync(file);
                 var photo = new Photo
                 {
+                    
                     Url = cloud.SecureUri.AbsoluteUri,
                     PublicId = cloud.PublicId
                 };
@@ -71,11 +66,20 @@ namespace api.Controllers.Seller
         }
 
 
-
+        [HttpDelete]
+        [Route("Delete/{Id}")]
         
+        public async Task<IActionResult> DeleteProducts([FromRoute]int Id)
+        {
+            if(!await _unitOfWork.ProductBidRepository.isExitAsync(filter => filter.Id == Id))
+                return BadRequest(new Response<string>("Not Exits"));
 
+            var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == Id);
+            _unitOfWork.ProductRepository.RemoveAsync(product);
 
-
+            await _unitOfWork.CommitAsync();
+            return Ok("Ok");
+        }
 
 
         private  async Task<byte[]> GetBytes(IFormFile formFile)

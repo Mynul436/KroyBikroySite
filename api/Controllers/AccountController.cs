@@ -29,6 +29,7 @@ namespace api.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(Signup signup)
         {
+            Console.WriteLine(signup.Name);   
             if(!ModelState.IsValid) return BadRequest();
             if(await _unitOfWork.UserRepository.isExitAsync(filter => filter.Email == signup.Email)) 
                 return BadRequest(new Response<string>("Email Already Exit"));

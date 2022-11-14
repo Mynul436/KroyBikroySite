@@ -11,9 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers.Users
 {
-     [ApiController]
+    [ApiController]
     [Route("[controller]")]
-   
     public class RattingController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -50,8 +49,6 @@ namespace api.Controllers.Users
             return Ok(new Response<string>("Added Ratting"));
         }
 
-
-        
 
         [HttpGet]
         public async Task<IActionResult> GetRattingOfProduct(int id)
