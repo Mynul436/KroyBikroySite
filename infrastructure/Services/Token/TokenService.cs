@@ -67,7 +67,7 @@ namespace infrastructure.Services.Token
             var token = new JwtSecurityToken(
                 issuer: _tokenSettings.Value.ValidIssuer,
                 audience: _tokenSettings.Value.ValidAudience,
-                expires: DateTime.Now.AddMinutes(tokenValidityInMinutes),
+                expires: DateTime.Now.AddDays(tokenValidityInMinutes),
                 claims: authClaims,
                 signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
             );

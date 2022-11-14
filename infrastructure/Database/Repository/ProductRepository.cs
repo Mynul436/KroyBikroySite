@@ -21,6 +21,29 @@ namespace infrastructure.Database.Repository
             _context = context;
         }
 
+        public async Task<PagedList<Product>> GetBiddingProduct(int Id, PaginationParams param)
+        {
+            var query = _context.Products.AsQueryable();
+
+            query = query.Where(filter => filter.OwnnerId == Id);
+            
+            var products = await PagedList<Product>.CreateAsync(query, 
+                    param.PageNumber, param.PageSize);
+
+            var maxBiding = _context.ProductBids.AsQueryable();
+            
+
+            foreach( var product in products){
+                var bid = await maxBiding.Where( filter => filter.ProductId == product.Id)
+                   .OrderBy(x => x.Price).SingleOrDefaultAsync();
+                
+                
+                if(bid != null) product.Biddings.Add(bid);
+            }
+
+            return products;
+        }
+
         public async Task<Product> GetProductById(int Id)
         {
             var product = await _context.Products
@@ -65,5 +88,7 @@ namespace infrastructure.Database.Repository
             return await PagedList<Product>.CreateAsync(query, 
                     userParams.PageNumber, userParams.PageSize);
         }
+    
+        
     }
 }

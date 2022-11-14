@@ -22,7 +22,6 @@
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/bin/Debug/net6.0/infrastructure.pdb
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/bin/Debug/net6.0/core.dll
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/bin/Debug/net6.0/core.pdb
-/home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/infrastructure.csproj.AssemblyReference.cache
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/infrastructure.AssemblyInfoInputs.cache
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/infrastructure.AssemblyInfo.cs
@@ -32,3 +31,4 @@
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/ref/infrastructure.dll
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/infrastructure.pdb
 /home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/infrastructure.genruntimeconfig.cache
+/home/fahim/Documents/Project350/Backend/KroyBikroySite/infrastructure/obj/Debug/net6.0/infrastructure.csproj.AssemblyReference.cache

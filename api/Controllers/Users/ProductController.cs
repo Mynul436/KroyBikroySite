@@ -1,9 +1,11 @@
 using api.Dto;
 using api.Extensions;
-using api.Helper;
+
 using AutoMapper;
 using core.Entities;
+using core.Helpers;
 using core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers.Seller
@@ -29,8 +31,25 @@ namespace api.Controllers.Seller
         {
             var productTypes = await _unitOfWork.TypeRepository.GetAllAsync();
 
-            return Ok(new Response<List<ProductTypeDto>>(_mapper.Map<List<ProductTypeDto>>(productTypes)));
+            return Ok(new Helper.Response<List<ProductTypeDto>>(_mapper.Map<List<ProductTypeDto>>(productTypes)));
         }
+
+
+
+        // [Authorize]
+        [HttpGet]
+        [Route("product-bidding-info")]
+        public async Task<IActionResult> ProductBidding([FromQuery]PaginationParams filter)
+        {
+            var products = await _unitOfWork.ProductRepository.GetBiddingProduct(16, filter);
+
+            foreach(var product in products){
+                
+            }
+            return Ok(new Helper.PagedResponse<List<Product>>(products, products.CurrentPage, products.PageSize, products.TotalCount));
+        }
+        
+
 
         [HttpPost]
         [Route("Add-product")]
@@ -59,10 +78,12 @@ namespace api.Controllers.Seller
             productPhoto[0].IsMain = true;
             product.Photos = productPhoto;
 
+            product.Quantity = 1;
+
             _unitOfWork.ProductRepository.AddAsync(product);
             await _unitOfWork.CommitAsync();
             
-            return Ok(new Response<string>("Added new Product"));
+            return Ok(new Helper.Response<string>("Added new Product"));
         }
 
 
@@ -72,7 +93,7 @@ namespace api.Controllers.Seller
         public async Task<IActionResult> DeleteProducts([FromRoute]int Id)
         {
             if(!await _unitOfWork.ProductBidRepository.isExitAsync(filter => filter.Id == Id))
-                return BadRequest(new Response<string>("Not Exits"));
+                return BadRequest(new Helper.Response<string>("Not Exits"));
 
             var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == Id);
             _unitOfWork.ProductRepository.RemoveAsync(product);

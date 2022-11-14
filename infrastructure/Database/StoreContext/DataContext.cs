@@ -66,6 +66,16 @@ namespace infrastructure.Database.StoreContext
                 .OnDelete(DeleteBehavior.Cascade);
             
 
+            
+
+            modelBuilder.Entity<Message>()
+                .HasOne( user => user.ReceiverUser)
+                .WithMany( message => message.Messages)
+                .HasForeignKey( key => key.ReceiverId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+
           
         }
            
@@ -74,6 +84,9 @@ namespace infrastructure.Database.StoreContext
         public DbSet<ProductType> ProductType{get;set;}
         public DbSet<Photo> ProductPicture {get;set;}
         public DbSet<ProductBid> ProductBids{get;set;}
+
+        public DbSet<Message> Messages{get;set;}
+        public DbSet<ProductSold> ProductSolds{get;set;}
 
     }
 }

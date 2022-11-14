@@ -21,5 +21,8 @@ namespace core.Entities
         public IEnumerable<Product>? Product{get;set;}
         public ICollection<ProductBid>? Biddings {get;set;}
         public ICollection<ProductRatting>? Rattings{get;set;}
+
+
+        public ICollection<Message> Messages{get;set;}
     }
 }

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using core.Entities;
 using core.Helpers;
 
@@ -13,6 +9,8 @@ namespace core.Interfaces
         Task<PagedList<Product>> newsFeed(UserParams param);
 
         Task<Product> GetProductById(int Id);
+
+        Task<PagedList<Product>> GetBiddingProduct(int Id, PaginationParams param);
     }
 
 }

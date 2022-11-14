@@ -15,11 +15,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace api.Controllers.Users
 {
 
-     [ApiController]
+    [ApiController]
     [Route("[controller]")]
     public class HomeController : ControllerBase
     {
-        
+
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
@@ -29,8 +29,8 @@ namespace api.Controllers.Users
             _mapper = mapper;
         }
 
-         [HttpGet]
-         [Route("Type-list")]
+        [HttpGet]
+        [Route("Type-list")]
         public async Task<IActionResult> GetTypes()
         {
             var productTypes = await _unitOfWork.TypeRepository.GetAllAsync();
@@ -40,22 +40,22 @@ namespace api.Controllers.Users
 
 
         [HttpGet]
-        public async Task<IActionResult> NewsFeed([FromQuery]core.Helpers.UserParams userParams)
+        public async Task<IActionResult> NewsFeed([FromQuery] core.Helpers.UserParams userParams)
         {
             var products = await _unitOfWork.ProductRepository.newsFeed(userParams);
             var newsFeeds = _mapper.Map<List<NewsFeedDto>>(products);
-                        
-           return Ok(new PagedResponse<List<NewsFeedDto>>(newsFeeds, products.CurrentPage, products.PageSize, products.TotalCount));
+
+            return Ok(new PagedResponse<List<NewsFeedDto>>(newsFeeds, products.CurrentPage, products.PageSize, products.TotalCount));
         }
 
 
         [HttpGet]
         [Route("product")]
-        public async Task<IActionResult> GetProduct( int Id)
+        public async Task<IActionResult> GetProduct(int Id)
         {
             var product = await _unitOfWork.ProductRepository.GetProductById(Id);
 
-            var viewProduct  = _mapper.Map<ProductViewDto>(product);
+            var viewProduct = _mapper.Map<ProductViewDto>(product);
 
 
             viewProduct.ProductOwnner = _mapper.Map<ProductOwnnerViewDto>(product.Ownner);
@@ -64,14 +64,15 @@ namespace api.Controllers.Users
 
 
             List<Expression<Func<ProductRatting, object>>> includeExpression = new List<Expression<Func<ProductRatting, object>>>();
-            
+
             includeExpression.Add(filter => filter.User);
             includeExpression.Add(filter => filter.Product);
 
-            viewProduct.ProductRatting = _mapper.Map<List<ProductRatingViewDto>>(await _unitOfWork.ProductRating.FindAsync(filter => filter.ProductId == Id , includeExpression));
+            viewProduct.ProductRatting = _mapper.Map<List<ProductRatingViewDto>>(await _unitOfWork.ProductRating.FindAsync(filter => filter.ProductId == Id, includeExpression));
 
 
-            foreach(var photo in product.Photos){
+            foreach (var photo in product.Photos)
+            {
                 viewProduct.ProductPhotos.Add(photo.Url);
             }
 
