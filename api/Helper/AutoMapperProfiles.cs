@@ -22,7 +22,9 @@ namespace api.Helper
             CreateMap<ProductDto, Product>();
             CreateMap<Product, NewsFeedDto>()
                 .ForMember( dest => dest.PictureURI, opt => opt.MapFrom( src => src.Photos.FirstOrDefault(x => x.IsMain).Url))
-                .ForMember( dest => dest.Type, opt => opt.MapFrom( src => src.Type.Name));
+                .ForMember( dest => dest.Type, opt => opt.MapFrom( src => src.Type.Name))
+                .ForMember( dest => dest.HighestBid, opt => opt.MapFrom(
+                        src => src.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().Price));
 
             CreateMap<ProductType, ProductTypeDto>();
 

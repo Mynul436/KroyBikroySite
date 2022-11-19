@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj": {}
+    "/home/abir/Documents/Project350_fahim/KroyBikroySite/infrastructure/infrastructure.csproj": {}
   },
   "projects": {
-    "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj": {
+    "/home/abir/Documents/Project350_fahim/KroyBikroySite/core/core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj",
+        "projectUniqueName": "/home/abir/Documents/Project350_fahim/KroyBikroySite/core/core.csproj",
         "projectName": "core",
-        "projectPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj",
-        "packagesPath": "C:\\Users\\mynul\\.nuget\\packages\\",
-        "outputPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\obj\\",
+        "projectPath": "/home/abir/Documents/Project350_fahim/KroyBikroySite/core/core.csproj",
+        "packagesPath": "/home/abir/.nuget/packages/",
+        "outputPath": "/home/abir/Documents/Project350_fahim/KroyBikroySite/core/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mynul\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/abir/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,8 +61,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -78,41 +70,34 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj": {
+    "/home/abir/Documents/Project350_fahim/KroyBikroySite/infrastructure/infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj",
+        "projectUniqueName": "/home/abir/Documents/Project350_fahim/KroyBikroySite/infrastructure/infrastructure.csproj",
         "projectName": "infrastructure",
-        "projectPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj",
-        "packagesPath": "C:\\Users\\mynul\\.nuget\\packages\\",
-        "outputPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\obj\\",
+        "projectPath": "/home/abir/Documents/Project350_fahim/KroyBikroySite/infrastructure/infrastructure.csproj",
+        "packagesPath": "/home/abir/.nuget/packages/",
+        "outputPath": "/home/abir/Documents/Project350_fahim/KroyBikroySite/infrastructure/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\mynul\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/abir/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj": {
-                "projectPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj"
+              "/home/abir/Documents/Project350_fahim/KroyBikroySite/core/core.csproj": {
+                "projectPath": "/home/abir/Documents/Project350_fahim/KroyBikroySite/core/core.csproj"
               }
             }
           }
@@ -180,8 +165,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -190,7 +174,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/dotnet6-6.0.110/sdk/6.0.110/RuntimeIdentifierGraph.json"
         }
       }
     }

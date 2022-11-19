@@ -10,11 +10,9 @@ namespace api.Dto
         public int Id {get; set;}
         public string Name{get;set;}
         public string Type {get;set;}
-        public string Discription{get;set;}
-        public int Quantity {get;set;}
-        public double Prices {get;set;}
-        public DateTime UsedTime {get;set;}
-        public DateTime BiddingDuration{get;set;}
+        public int Prices {get;set;}
+
+        public int HighestBid {get;set;}
         public String PictureURI{get;set;}
     }
 }

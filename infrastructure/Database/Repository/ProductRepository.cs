@@ -76,6 +76,7 @@ namespace infrastructure.Database.Repository
             if(userParams.Name != "-1") query = query.Where(product => product.Name.Contains(userParams.Name));
 
             query = query.Include(type => type.Type).Include(photo => photo.Photos);
+            query = query.Include(bid => bid.Biddings);
 
             return await PagedList<Product>.CreateAsync(query, 
                     userParams.PageNumber, userParams.PageSize);
