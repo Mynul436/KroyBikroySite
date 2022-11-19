@@ -29,6 +29,8 @@ namespace core.Entities
 
 
         public ICollection<ProductBid>? Biddings {get;set;}
+
+
         public ICollection<ProductRatting>? Rattings{get;set;}
     }
 

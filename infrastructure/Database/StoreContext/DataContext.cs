@@ -39,11 +39,7 @@ namespace infrastructure.Database.StoreContext
             //     .OnDelete(DeleteBehavior.Cascade);
 
 
-            modelBuilder.Entity<ProductRatting>()
-                .HasOne( user => user.User)
-                .WithMany( ratting => ratting.Rattings)
-                .HasForeignKey( key => key.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+           
             
             
             modelBuilder.Entity<ProductRatting>()
@@ -74,6 +70,17 @@ namespace infrastructure.Database.StoreContext
                 .HasForeignKey( key => key.ReceiverId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+
+            modelBuilder.Entity<UserRatting>()
+                .HasOne( key => new {key.CustomerId, key.SellerId, key.Id});
+
+
+
+            modelBuilder.Entity<UserRatting>()
+                .HasOne(seller => seller.Seller)
+                .WithMany(Ratting => Ratting.Rattings)
+                .HasForeignKey(key => key.SellerId)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
           

@@ -1,4 +1,4 @@
-using System.Security.Cryptography;
+ using System.Security.Cryptography;
 using System.Text;
 using api.Dto;
 using api.Helper;
@@ -31,8 +31,15 @@ namespace api.Controllers
         {
             Console.WriteLine(signup.Name);   
             if(!ModelState.IsValid) return BadRequest();
+
+           
             if(await _unitOfWork.UserRepository.isExitAsync(filter => filter.Email == signup.Email)) 
-                return BadRequest(new Response<string>("Email Already Exit"));
+                return BadRequest("Email_Already_Used");
+            
+            if(await _unitOfWork.UserRepository.isExitAsync(filter => filter.Phone == signup.Phone))
+                return BadRequest("Phone_Already_Used");
+
+
           //  if(await _unitOfWork.UserRepository.isExitAsync(filter => filter.UserName == signup.UserName)) return BadRequest(new Response<string>("Already Exit username"));
 
             var user = _mapper.Map<User>(signup);

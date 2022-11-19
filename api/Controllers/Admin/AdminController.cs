@@ -11,7 +11,7 @@ namespace api.Controllers.Admin
 {
     [ApiController]
     [Route("[controller]")]
-    //[Authorize(Roles = "Admin")]
+  //  [Authorize(Roles = "Admin")]
     public class AdminController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;

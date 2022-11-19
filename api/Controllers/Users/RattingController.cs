@@ -29,22 +29,22 @@ namespace api.Controllers.Users
         [HttpPost]
         [Route("Add-rating")]
          [Authorize]
-        public async Task<IActionResult> AddRattingToProduct(ProductRatingDto ratingDto)
+        public async Task<IActionResult> AddRattingToProduct(AddProductDto ratingDto)
         {
-            if(!await _unitOfWork.ProductRepository.isExitAsync(filter => filter.Id == ratingDto.ProductId))
-                return BadRequest();
-            var rating = _mapper.Map<ProductRatting>(ratingDto);
+            // if(!await _unitOfWork.ProductRepository.isExitAsync(filter => filter.Id == ratingDto.ProductId))
+            //     return BadRequest();
+            // var rating = _mapper.Map<ProductRatting>(ratingDto);
 
-            var user = await _unitOfWork.UserRepository.GetByIdAsync(User.GetUserId());
-            var product = await _unitOfWork.ProductRepository.GetByIdAsync(ratingDto.ProductId);
+            // var user = await _unitOfWork.UserRepository.GetByIdAsync(User.GetUserId());
+            // var product = await _unitOfWork.ProductRepository.GetByIdAsync(ratingDto.ProductId);
 
-            user.Rattings = new List<ProductRatting>();
-            product.Rattings = new List<ProductRatting>();
+            // user.Rattings = new List<ProductRatting>();
+            // product.Rattings = new List<ProductRatting>();
 
-            user.Rattings.Add(rating);
-            product.Rattings.Add(rating);
+            // user.Rattings.Add(rating);
+            // product.Rattings.Add(rating);
 
-            await _unitOfWork.CommitAsync();
+            // await _unitOfWork.CommitAsync();
 
             return Ok(new Response<string>("Added Ratting"));
         }
