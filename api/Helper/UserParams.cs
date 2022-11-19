@@ -15,7 +15,7 @@ namespace api.Helper
         public string Name {get;set;}
         public string District {get;set;}
         public string SubDistrict {get;set;}
-        public string OrderByPrices {get;set;}
+        public string OrderByPrices {get;set;} = "asc";
         
 
     }
