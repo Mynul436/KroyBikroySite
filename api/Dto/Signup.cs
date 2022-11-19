@@ -8,9 +8,7 @@ namespace api.Dto
 {
     public class Signup
     {
-        public string UserName{get;set;}
-        [Required(ErrorMessage = "Please enter your name!!")]
-        [StringLength(100)]
+      
         public string Name{get;set;}
         [Required(ErrorMessage = "Please enter your email address!1")]
         [Display(Name = "Email Address")]
@@ -20,8 +18,13 @@ namespace api.Dto
         [Display(Name = "Phone Number")]
         [Phone]
         public string Phone{get;set;}
+        public string District {get;set;}
+        public string Address {get;set;}
+
+
         [Required(ErrorMessage = "Please enter password")]
         [DataType(DataType.Password)]
         public string Password{get;set;}
+
     }
 }

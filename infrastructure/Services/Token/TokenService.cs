@@ -29,11 +29,12 @@ namespace infrastructure.Services.Token
         {
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim(ClaimTypes.Name, user.Name),
                 new Claim("id", user.Id.ToString())
             };
 
-            authClaims.Add(new Claim(ClaimTypes.GivenName, user.Name));
+           //  authClaims.Add(new Claim(ClaimTypes.GivenName, user.Name));
             authClaims.Add(new Claim(ClaimTypes.Role, user.Role));
             authClaims.Add(new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()));
             

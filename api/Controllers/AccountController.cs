@@ -33,7 +33,7 @@ namespace api.Controllers
             if(!ModelState.IsValid) return BadRequest();
             if(await _unitOfWork.UserRepository.isExitAsync(filter => filter.Email == signup.Email)) 
                 return BadRequest(new Response<string>("Email Already Exit"));
-            if(await _unitOfWork.UserRepository.isExitAsync(filter => filter.UserName == signup.UserName)) return BadRequest(new Response<string>("Already Exit username"));
+          //  if(await _unitOfWork.UserRepository.isExitAsync(filter => filter.UserName == signup.UserName)) return BadRequest(new Response<string>("Already Exit username"));
 
             var user = _mapper.Map<User>(signup);
             
