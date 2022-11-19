@@ -67,7 +67,7 @@ namespace api.Controllers.Seller
 
         [HttpPost]
         [Route("Add-product")]
-        public async Task<IActionResult> AddProduct([FromForm]ProductDto productDto)
+        public async Task<IActionResult> AddProduct([FromForm] AddProductDto productDto)
         {
             if(!ModelState.IsValid) return BadRequest();
 
@@ -77,7 +77,7 @@ namespace api.Controllers.Seller
 
             var productPhoto = new List<Photo>();
 
-            foreach(var file in productDto.Pictures)
+            foreach(var file in productDto.ProductPhotos)
             {
                 var cloud = await _photoService.AddPhotoAsync(file);
                 var photo = new Photo
@@ -91,7 +91,6 @@ namespace api.Controllers.Seller
             productPhoto[0].IsMain = true;
             product.Photos = productPhoto;
 
-            product.Quantity = 1;
 
             _unitOfWork.ProductRepository.AddAsync(product);
             await _unitOfWork.CommitAsync();

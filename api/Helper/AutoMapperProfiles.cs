@@ -13,6 +13,11 @@ namespace api.Helper
             CreateMap<Signup, User>();
 
             
+            CreateMap<Product, AddProductDto>();
+            CreateMap<AddProductDto,Product>();
+
+
+            
             CreateMap<User, MemberDto>();
             CreateMap<ProductDto, Product>();
             CreateMap<Product, NewsFeedDto>()

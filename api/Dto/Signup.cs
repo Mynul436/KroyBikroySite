@@ -8,7 +8,6 @@ namespace api.Dto
 {
     public class Signup
     {
-      
         public string Name{get;set;}
         [Required(ErrorMessage = "Please enter your email address!1")]
         [Display(Name = "Email Address")]

@@ -69,9 +69,9 @@ namespace infrastructure.Database.Repository
 
             query = query.Where( prices => prices.Prices >= minPrices && prices.Prices <= maxPrices);
 
-            if(userParams.OrderByBiddingDuration) query = query.OrderByDescending( product => product.BiddingDuration);
+            // if(userParams.OrderByBiddingDuration) query = query.OrderByDescending( product => product.BiddingDuration);
 
-            if(userParams.TypeId != -1) query = query.Where( product => product.TypeId == userParams.TypeId);
+            // if(userParams.TypeId != -1) query = query.Where( product => product.TypeId == userParams.TypeId);
 
             query = query.Include(type => type.Type).Include(photo => photo.Photos);
 

@@ -14,7 +14,7 @@ namespace core.Entities
         public string District {get;set;}
         public string Address {get;set;}
 
-        public string Role{get;set;} = "User";
+        public string Role{get;set;} = "Admin";
 
         public byte[] PasswordHash {get; set;}
         public byte[] PasswordSalt {get;set;}
