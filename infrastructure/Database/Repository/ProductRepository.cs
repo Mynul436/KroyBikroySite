@@ -41,7 +41,6 @@ namespace infrastructure.Database.Repository
                 .Include( photo => photo.Photos)
                 .Include( ownner => ownner.Ownner)
                 .Include( bidding => bidding.Biddings)
-                .Include( ratting => ratting.Rattings)
                 .FirstOrDefaultAsync(filter => filter.Id == Id);
 
             return product;

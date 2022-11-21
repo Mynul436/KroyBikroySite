@@ -11,8 +11,8 @@ using infrastructure.Database.StoreContext;
 namespace api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221119143619_asdfj")]
-    partial class asdfj
+    [Migration("20221119202639_AddUserRattingg")]
+    partial class AddUserRattingg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -156,34 +156,6 @@ namespace api.Migrations
                     b.ToTable("ProductBids");
                 });
 
-            modelBuilder.Entity("core.Entities.ProductRatting", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Ratting")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ProductRatting");
-                });
-
             modelBuilder.Entity("core.Entities.ProductSold", b =>
                 {
                     b.Property<int>("Id")
@@ -271,6 +243,34 @@ namespace api.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("core.Entities.UserRatting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Ratting")
+                        .HasColumnType("double");
+
+                    b.Property<int>("SellerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("SellerId");
+
+                    b.ToTable("UserRattings");
+                });
+
             modelBuilder.Entity("core.Entities.Message", b =>
                 {
                     b.HasOne("core.Entities.User", "ReceiverUser")
@@ -339,25 +339,6 @@ namespace api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("core.Entities.ProductRatting", b =>
-                {
-                    b.HasOne("core.Entities.Product", "Product")
-                        .WithMany("Rattings")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("core.Entities.User", "User")
-                        .WithMany("Rattings")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("core.Entities.ProductSold", b =>
                 {
                     b.HasOne("core.Entities.User", "Customer")
@@ -385,13 +366,30 @@ namespace api.Migrations
                     b.Navigation("Seller");
                 });
 
+            modelBuilder.Entity("core.Entities.UserRatting", b =>
+                {
+                    b.HasOne("core.Entities.User", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("core.Entities.User", "Seller")
+                        .WithMany("Rattings")
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Seller");
+                });
+
             modelBuilder.Entity("core.Entities.Product", b =>
                 {
                     b.Navigation("Biddings");
 
                     b.Navigation("Photos");
-
-                    b.Navigation("Rattings");
                 });
 
             modelBuilder.Entity("core.Entities.ProductType", b =>

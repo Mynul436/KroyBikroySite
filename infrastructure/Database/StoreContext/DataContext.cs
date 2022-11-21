@@ -30,23 +30,7 @@ namespace infrastructure.Database.StoreContext
                 .HasOne( product => product.Product)
                 .WithMany( picture => picture.Photos)
                 .HasForeignKey( product => product.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // modelBuilder.Entity<CustomerAddress>()
-            //     .HasOne( c => c.Customer)
-            //     .WithMany( address => address.CustomerAddresses)
-            //     .HasForeignKey ( c => c.CustomerId)
-            //     .OnDelete(DeleteBehavior.Cascade);
-
-
-           
-            
-            
-            modelBuilder.Entity<ProductRatting>()
-                .HasOne(product => product.Product)
-                .WithMany(ratting => ratting.Rattings)
-                .HasForeignKey(key => key.ProductId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade); 
 
 
             modelBuilder.Entity<ProductBid>()
@@ -60,9 +44,7 @@ namespace infrastructure.Database.StoreContext
                 .WithMany( user => user.Biddings)
                 .HasForeignKey( key => key.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
-            
-
-            
+                
 
             modelBuilder.Entity<Message>()
                 .HasOne( user => user.ReceiverUser)
@@ -70,19 +52,11 @@ namespace infrastructure.Database.StoreContext
                 .HasForeignKey( key => key.ReceiverId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-
-            modelBuilder.Entity<UserRatting>()
-                .HasOne( key => new {key.CustomerId, key.SellerId, key.Id});
-
-
-
             modelBuilder.Entity<UserRatting>()
                 .HasOne(seller => seller.Seller)
                 .WithMany(Ratting => Ratting.Rattings)
                 .HasForeignKey(key => key.SellerId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
+              .OnDelete(DeleteBehavior.Cascade);
           
         }
            
@@ -94,6 +68,8 @@ namespace infrastructure.Database.StoreContext
 
         public DbSet<Message> Messages{get;set;}
         public DbSet<ProductSold> ProductSolds{get;set;}
+
+        public DbSet<UserRatting> UserRattings{get;set;}
 
     }
 }

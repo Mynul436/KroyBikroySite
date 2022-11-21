@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace api.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class AddUserRattingg : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -94,13 +94,18 @@ namespace api.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
-                    Discription = table.Column<string>(type: "longtext", nullable: false)
+                    Description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Prices = table.Column<double>(type: "double", nullable: false),
-                    UsedTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    BiddingDuration = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     TypeId = table.Column<int>(type: "int", nullable: false),
+                    BuyingDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    BiddingEndDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    District = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    SubDistrict = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Address = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     OwnnerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -115,6 +120,36 @@ namespace api.Migrations
                     table.ForeignKey(
                         name: "FK_Products_Users_OwnnerId",
                         column: x => x.OwnnerId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "UserRattings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Ratting = table.Column<double>(type: "double", nullable: false),
+                    Comment = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    SellerId = table.Column<int>(type: "int", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserRattings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserRattings_Users_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserRattings_Users_SellerId",
+                        column: x => x.SellerId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -168,36 +203,6 @@ namespace api.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ProductBids_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "ProductRatting",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Ratting = table.Column<int>(type: "int", nullable: false),
-                    Message = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductRatting", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_ProductRatting_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductRatting_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -266,16 +271,6 @@ namespace api.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductRatting_ProductId",
-                table: "ProductRatting",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductRatting_UserId",
-                table: "ProductRatting",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Products_OwnnerId",
                 table: "Products",
                 column: "OwnnerId");
@@ -299,6 +294,16 @@ namespace api.Migrations
                 name: "IX_ProductSolds_SellerId",
                 table: "ProductSolds",
                 column: "SellerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRattings_CustomerId",
+                table: "UserRattings",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserRattings_SellerId",
+                table: "UserRattings",
+                column: "SellerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -313,10 +318,10 @@ namespace api.Migrations
                 name: "ProductBids");
 
             migrationBuilder.DropTable(
-                name: "ProductRatting");
+                name: "ProductSolds");
 
             migrationBuilder.DropTable(
-                name: "ProductSolds");
+                name: "UserRattings");
 
             migrationBuilder.DropTable(
                 name: "Products");
