@@ -54,6 +54,7 @@ namespace infrastructure.Database.StoreContext
                 .WithMany( message => message.Messages)
                 .HasForeignKey( key => key.ReceiverId)
                 .OnDelete(DeleteBehavior.Cascade);
+        
 
             modelBuilder.Entity<UserRatting>()
                 .HasOne(seller => seller.Seller)
@@ -70,6 +71,7 @@ namespace infrastructure.Database.StoreContext
 
         public DbSet<Message> Messages{get;set;}
         public DbSet<ProductSold> ProductSolds{get;set;}
+        public DbSet<PaymentRequest> PaymentRequests{get;set;}
 
         public DbSet<UserRatting> UserRattings{get;set;}
 

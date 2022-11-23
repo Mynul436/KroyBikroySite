@@ -29,6 +29,7 @@ namespace core.Entities
 
         public ICollection<Message> Messages{get;set;}
 
+        public ICollection<PaymentRequest> PaymentRequests{get;set;}
 
         public ICollection<UserRatting>? Rattings{get;set;}
     }

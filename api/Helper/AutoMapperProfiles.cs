@@ -39,6 +39,8 @@ namespace api.Helper
             
             CreateMap<ProductRatingDto, ProductRatting>();
 
+            CreateMap<PaymentRequest, AddPaymentReqestDto>();
+
 
             CreateMap<ProductType, ProductTypeViewDto>();
 
@@ -48,6 +50,15 @@ namespace api.Helper
                 .ForMember(dest => dest.ProductPrices, opt => opt.MapFrom(src => src.Product.Prices))
                 .ForMember(dest => dest.MyBid, opt => opt.MapFrom(src => src.Price))
                 .ForMember(dest => dest.BiddingEndDate, opt=> opt.MapFrom(src => src.Product.BiddingEndDate));
+
+
+            CreateMap<ProductBid, HighBidInfoDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.User.Name));
+
+
+            CreateMap<Product, myAddProductViewDto>();
+            
+
 
             CreateMap<Product, ProductBiddingView>()
                 .ForMember( dest => dest.BiddingPrices, opt => opt.MapFrom( src => src.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().Price))

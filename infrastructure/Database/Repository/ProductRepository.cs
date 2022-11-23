@@ -94,6 +94,7 @@ namespace infrastructure.Database.Repository
             query = query.Where( prices => prices.Prices >= minPrices && prices.Prices <= maxPrices);
             
             query = query.Where( product => product.BiddingStatus == true);
+            query = query.Where( product => product.PaymentStatus == false);
 
             query = (userParams.Name == "asc") ? query.OrderBy(product => product.Prices) : query.OrderByDescending( product => product.Prices);
 
@@ -107,7 +108,22 @@ namespace infrastructure.Database.Repository
             return await PagedList<Product>.CreateAsync(query, 
                     userParams.PageNumber, userParams.PageSize);
         }
-    
-        
+
+        public async Task<PagedList<Product>> GetUserProducts(int userId, PaginationParams param)
+        {
+           
+
+            var query = _context.Products.AsQueryable();
+
+            query = query.Where( product => product.OwnnerId == userId);
+
+         
+
+            query = query.Include(type => type.Type).Include(photo => photo.Photos);
+            query = query.Include(bid => bid.Biddings).ThenInclude(user => user.User);
+
+            return await PagedList<Product>.CreateAsync(query, 
+                    param.PageNumber, param.PageSize);
+        }
     }
 }

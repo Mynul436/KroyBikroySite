@@ -1,17 +1,18 @@
-
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using api.Extensions;
 using infrastructure.Database.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api.Controllers.Users
 {
-    [ApiController]
+
+     [ApiController]
     [Route("[controller]")]
-    public class UserController : ControllerBase
+    public class ProfileController :  ControllerBase
     {
-        
-        
        
     }
 }

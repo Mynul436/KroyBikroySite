@@ -107,6 +107,7 @@ namespace api.Migrations
                     Address = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     BiddingStatus = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    PaymentStatus = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     OwnnerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -151,6 +152,34 @@ namespace api.Migrations
                     table.ForeignKey(
                         name: "FK_UserRattings_Users_SellerId",
                         column: x => x.SellerId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "PaymentRequests",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    Prices = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PaymentRequests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PaymentRequests_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PaymentRequests_Users_CustomerId",
+                        column: x => x.CustomerId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -216,10 +245,11 @@ namespace api.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SellerId = table.Column<int>(type: "int", nullable: false),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    Prices = table.Column<int>(type: "int", nullable: false)
+                    Prices = table.Column<int>(type: "int", nullable: false),
+                    TransactionId = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
@@ -236,12 +266,6 @@ namespace api.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProductSolds_Users_SellerId",
-                        column: x => x.SellerId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -254,6 +278,16 @@ namespace api.Migrations
                 name: "IX_Messages_SenderUserId",
                 table: "Messages",
                 column: "SenderUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaymentRequests_CustomerId",
+                table: "PaymentRequests",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PaymentRequests_ProductId",
+                table: "PaymentRequests",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_ProductId",
@@ -291,11 +325,6 @@ namespace api.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProductSolds_SellerId",
-                table: "ProductSolds",
-                column: "SellerId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserRattings_CustomerId",
                 table: "UserRattings",
                 column: "CustomerId");
@@ -310,6 +339,9 @@ namespace api.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "PaymentRequests");
 
             migrationBuilder.DropTable(
                 name: "Photos");

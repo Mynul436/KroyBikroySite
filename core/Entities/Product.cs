@@ -22,11 +22,12 @@ namespace core.Entities
         public string Address {get;set;}
 
         public Boolean BiddingStatus {get;set;} = true;
+        public Boolean PaymentStatus {get;set;} = false;
+
 
         public ICollection<Photo> Photos { get; set; }        
         public int OwnnerId {get;set;} 
         public User Ownner{get;set;} = null!;
         public ICollection<ProductBid>? Biddings {get;set;}
     }
-
 }

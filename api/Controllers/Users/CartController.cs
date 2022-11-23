@@ -36,10 +36,21 @@ namespace api.Controllers.Users
             
             var productCartView =  _mapper.Map<List<ProductCartViewDto>>(carts);
 
-           // return Ok(carts);
-
            return Ok(new PagedResponse<List<ProductCartViewDto>>(productCartView, carts.CurrentPage, carts.PageSize, carts.TotalCount));
         }
+
+
+        
+        [HttpPost]
+        [Route("payment")]
+        public async Task<IActionResult> Payment(AddPaymentDto paymentDto)
+        {
+
+            return Ok();
+        }
+
+
+
 
     }
 }

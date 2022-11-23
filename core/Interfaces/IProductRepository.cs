@@ -13,6 +13,8 @@ namespace core.Interfaces
         Task<PagedList<Product>> GetBiddingProduct(int Id, PaginationParams param);
 
         Task<PagedList<ProductBid>> userProductCart(int userId, PaginationParams userParams);
+
+        Task<PagedList<Product>> GetUserProducts(int userId, PaginationParams param);
     }
 
 }

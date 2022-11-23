@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using api.Dto;
+using api.Extensions;
 using api.Helper;
 using AutoMapper;
 using core.Entities;
@@ -27,6 +28,70 @@ namespace api.Controllers.Users
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+        }
+
+
+
+          [HttpGet]
+          [Route("my-product")]
+        public async Task<IActionResult> MyProducts([FromQuery] core.Helpers.PaginationParams param)
+        {
+
+            var products = await _unitOfWork.ProductRepository.GetUserProducts(User.GetUserId(), param);
+            var MyProducts = _mapper.Map< List<myAddProductViewDto>>(products);
+
+            for(int i = 0; i < products.Count(); i++)
+            {
+                MyProducts[i].HighBidInfo = _mapper.Map<HighBidInfoDto>(products[i].Biddings.OrderByDescending(x => x.Price).SingleOrDefault());
+            }
+            
+
+            return Ok(new PagedResponse<List<myAddProductViewDto>>(MyProducts, products.CurrentPage, products.PageSize, products.TotalCount));
+
+        }
+
+
+        [HttpPut]
+        [Route("stop-bidding")]
+        public async Task<IActionResult> StopBidding(int productId)
+        {
+            var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.OwnnerId == User.GetUserId() && filter.Id==productId);
+            if(product == null) return BadRequest();
+
+            product.BiddingStatus = false;
+            _unitOfWork.ProductRepository.UpdateAsync(product);
+            await _unitOfWork.CommitAsync();
+
+            return Ok();
+        }
+
+      
+        [HttpPost]
+        [Route("send-payment-request")]
+        public async Task<IActionResult> SendPaymentRequest(AddPaymentReqestDto paymentReqest)
+        {
+
+            if(!await _unitOfWork.ProductRepository.isExitAsync(filter => filter.Id == paymentReqest.ProductId && filter.OwnnerId == User.GetUserId())   &&   !await _unitOfWork.ProductBidRepository.isExitAsync(filter => filter.ProductId == paymentReqest.ProductId && filter.UserId == paymentReqest.CustomerId)) return BadRequest();
+
+
+            var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == paymentReqest.ProductId);
+
+            var user = await _unitOfWork.UserRepository.FindOneAsync(filter => filter.Id == paymentReqest.CustomerId);
+
+            var paymentRequest = new PaymentRequest{
+                Product = product,
+                Customer = user
+            };
+
+
+            product.BiddingStatus = false;
+
+            _unitOfWork.PaymentRequest.AddAsync(paymentRequest);
+            _unitOfWork.ProductRepository.UpdateAsync(product);
+
+            await _unitOfWork.CommitAsync();
+
+            return Ok();
         }
 
         [HttpGet]

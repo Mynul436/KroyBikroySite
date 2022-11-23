@@ -25,7 +25,9 @@ namespace api.Extensions
             });
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
             return services;
         }
 

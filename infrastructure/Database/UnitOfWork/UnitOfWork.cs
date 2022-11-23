@@ -10,7 +10,7 @@ namespace infrastructure.Database.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         private readonly DataContext _context;
-        
+
 
         public UnitOfWork(DataContext context)
         {
@@ -22,12 +22,14 @@ namespace infrastructure.Database.UnitOfWork
         public ICustomerRepository Customer => throw new NotImplementedException();
         public IRepository<ProductType> TypeRepository => new Repository<ProductType>(_context);
 
-        public IProductRepository ProductRepository {get; private set;}
+        public IProductRepository ProductRepository { get; private set; }
         public IRepository<Picture> ProductPictureRepository => new Repository<Picture>(_context);
 
         public IRepository<ProductBid> ProductBidRepository => new Repository<ProductBid>(_context);
 
         public IRepository<ProductRatting> ProductRating => new Repository<ProductRatting>(_context);
+
+        public IRepository<PaymentRequest> PaymentRequest => new Repository<PaymentRequest>(_context);
 
         public async Task CommitAsync()
         {
@@ -38,7 +40,7 @@ namespace infrastructure.Database.UnitOfWork
         {
             _context.Dispose();
         }
-        
+
         public async Task RollbackAsync()
         {
             await _context.DisposeAsync();

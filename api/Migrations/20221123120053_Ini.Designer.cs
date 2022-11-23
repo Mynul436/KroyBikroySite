@@ -11,7 +11,7 @@ using infrastructure.Database.StoreContext;
 namespace api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221123100247_Ini")]
+    [Migration("20221123120053_Ini")]
     partial class Ini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,30 @@ namespace api.Migrations
                     b.HasIndex("SenderUserId");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("core.Entities.PaymentRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Prices")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("PaymentRequests");
                 });
 
             modelBuilder.Entity("core.Entities.Photo", b =>
@@ -113,6 +137,9 @@ namespace api.Migrations
                     b.Property<int>("OwnnerId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("PaymentStatus")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<double>("Prices")
                         .HasColumnType("double");
 
@@ -171,16 +198,15 @@ namespace api.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SellerId")
-                        .HasColumnType("int");
+                    b.Property<string>("TransactionId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
                     b.HasIndex("ProductId");
-
-                    b.HasIndex("SellerId");
 
                     b.ToTable("ProductSolds");
                 });
@@ -290,6 +316,25 @@ namespace api.Migrations
                     b.Navigation("SenderUser");
                 });
 
+            modelBuilder.Entity("core.Entities.PaymentRequest", b =>
+                {
+                    b.HasOne("core.Entities.User", "Customer")
+                        .WithMany("PaymentRequests")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("core.Entities.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("core.Entities.Photo", b =>
                 {
                     b.HasOne("core.Entities.Product", "Product")
@@ -353,17 +398,9 @@ namespace api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("core.Entities.User", "Seller")
-                        .WithMany()
-                        .HasForeignKey("SellerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Customer");
 
                     b.Navigation("Product");
-
-                    b.Navigation("Seller");
                 });
 
             modelBuilder.Entity("core.Entities.UserRatting", b =>
@@ -402,6 +439,8 @@ namespace api.Migrations
                     b.Navigation("Biddings");
 
                     b.Navigation("Messages");
+
+                    b.Navigation("PaymentRequests");
 
                     b.Navigation("Product");
 
