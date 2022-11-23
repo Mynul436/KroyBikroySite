@@ -8,8 +8,8 @@ namespace core.Helpers
 
 
         public string? Name {get;set;} = "-1";
-        public string? District {get;set;}
-        public string? SubDistrict {get;set;}
+        public string? District {get;set;} = "-1";
+        public string? SubDistrict {get;set;} = "-1";
         public string? OrderByPrices {get;set;}
 
         

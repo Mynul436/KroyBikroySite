@@ -96,8 +96,13 @@ namespace infrastructure.Database.Repository
             query = query.Where( product => product.BiddingStatus == true);
             query = query.Where( product => product.PaymentStatus == false);
 
+        
+
             query = (userParams.Name == "asc") ? query.OrderBy(product => product.Prices) : query.OrderByDescending( product => product.Prices);
 
+            if(userParams.District != "-1") query = query.Where(product => product.District == userParams.District);
+            if(userParams.SubDistrict != "-1") query = query.Where( product => product.SubDistrict == userParams.SubDistrict);
+            
             if(userParams.TypeId != -1) query = query.Where( product => product.TypeId == userParams.TypeId);
 
             if(userParams.Name != "-1") query = query.Where(product => product.Name.Contains(userParams.Name));
