@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace api.Migrations
 {
-    public partial class MyFirstMigration : Migration
+    public partial class Ini : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -106,6 +106,7 @@ namespace api.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Address = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    BiddingStatus = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     OwnnerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -188,7 +189,6 @@ namespace api.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Price = table.Column<double>(type: "double", nullable: false),
-                    Quantity = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false)
                 },

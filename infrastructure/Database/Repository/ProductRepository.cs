@@ -92,7 +92,8 @@ namespace infrastructure.Database.Repository
             var maxPrices = userParams.HighPrices;
 
             query = query.Where( prices => prices.Prices >= minPrices && prices.Prices <= maxPrices);
-         //   query = query.Where( product => product.BiddingStatus == true);
+            
+            query = query.Where( product => product.BiddingStatus == true);
 
             query = (userParams.Name == "asc") ? query.OrderBy(product => product.Prices) : query.OrderByDescending( product => product.Prices);
 

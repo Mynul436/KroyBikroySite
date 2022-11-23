@@ -21,7 +21,7 @@ namespace core.Entities
         public string SubDistrict {get;set;}
         public string Address {get;set;}
 
-        public Boolean BiddingStatus = false;
+        public Boolean BiddingStatus {get;set;} = true;
 
         public ICollection<Photo> Photos { get; set; }        
         public int OwnnerId {get;set;} 

@@ -90,6 +90,9 @@ namespace api.Migrations
                     b.Property<DateTime>("BiddingEndDate")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<bool>("BiddingStatus")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<DateTime>("BuyingDate")
                         .HasColumnType("datetime(6)");
 

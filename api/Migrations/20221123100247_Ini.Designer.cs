@@ -11,8 +11,8 @@ using infrastructure.Database.StoreContext;
 namespace api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221123094931_AddBiddingStatus")]
-    partial class AddBiddingStatus
+    [Migration("20221123100247_Ini")]
+    partial class Ini
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -91,6 +91,9 @@ namespace api.Migrations
 
                     b.Property<DateTime>("BiddingEndDate")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<bool>("BiddingStatus")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("BuyingDate")
                         .HasColumnType("datetime(6)");
