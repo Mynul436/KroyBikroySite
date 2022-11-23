@@ -258,3 +258,6 @@ E:/Swe3.2/Project350/KroyBikroySite/api/obj/Debug/net6.0/api.MvcApplicationParts
 /home/fahim/Documents/Project350/Nov_21_22/KroyBikroySite/api/obj/Debug/net6.0/ref/api.dll
 /home/fahim/Documents/Project350/Nov_21_22/KroyBikroySite/api/obj/Debug/net6.0/api.pdb
 /home/fahim/Documents/Project350/Nov_21_22/KroyBikroySite/api/obj/Debug/net6.0/api.genruntimeconfig.cache
+E:\Swe3.2\Project350\KroyBikroySite\api\obj\Debug\net6.0\api.dll
+E:\Swe3.2\Project350\KroyBikroySite\api\obj\Debug\net6.0\refint\api.dll
+E:\Swe3.2\Project350\KroyBikroySite\api\obj\Debug\net6.0\api.pdb
