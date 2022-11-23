@@ -104,10 +104,11 @@ namespace api.Controllers.Seller
         
         public async Task<IActionResult> DeleteProducts([FromRoute]int Id)
         {
-            if(!await _unitOfWork.ProductBidRepository.isExitAsync(filter => filter.Id == Id))
+            if(!await _unitOfWork.ProductRepository.isExitAsync(filter => filter.Id == Id))
                 return BadRequest(new Helper.Response<string>("Not Exits"));
 
-            var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == Id);
+            var product = await _unitOfWork.ProductRepository.FindOneAsync(filter =>
+            filter.Id == Id);
             _unitOfWork.ProductRepository.RemoveAsync(product);
 
             await _unitOfWork.CommitAsync();
