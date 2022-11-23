@@ -19,15 +19,13 @@ namespace core.Entities
 
         public string District {get;set;}
         public string SubDistrict {get;set;}
-
         public string Address {get;set;}
 
+        public Boolean BiddingStatus = false;
 
         public ICollection<Photo> Photos { get; set; }        
         public int OwnnerId {get;set;} 
         public User Ownner{get;set;} = null!;
-
-
         public ICollection<ProductBid>? Biddings {get;set;}
     }
 

@@ -12,6 +12,8 @@ namespace infrastructure.Database.StoreContext
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Product>()
@@ -25,6 +27,7 @@ namespace infrastructure.Database.StoreContext
                 .WithMany(product => product.Product)
                 .HasForeignKey(product => product.TypeId)
                 .OnDelete( DeleteBehavior.Cascade);
+            
             
             modelBuilder.Entity<Photo>()
                 .HasOne( product => product.Product)
@@ -56,8 +59,7 @@ namespace infrastructure.Database.StoreContext
                 .HasOne(seller => seller.Seller)
                 .WithMany(Ratting => Ratting.Rattings)
                 .HasForeignKey(key => key.SellerId)
-              .OnDelete(DeleteBehavior.Cascade);
-          
+              .OnDelete(DeleteBehavior.Cascade);          
         }
            
         public DbSet<User> Users{get;set;}

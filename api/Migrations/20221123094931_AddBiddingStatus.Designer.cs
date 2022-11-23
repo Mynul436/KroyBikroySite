@@ -11,8 +11,8 @@ using infrastructure.Database.StoreContext;
 namespace api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221119202639_AddUserRattingg")]
-    partial class AddUserRattingg
+    [Migration("20221123094931_AddBiddingStatus")]
+    partial class AddBiddingStatus
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -139,9 +139,6 @@ namespace api.Migrations
                         .HasColumnType("double");
 
                     b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")

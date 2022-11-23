@@ -31,7 +31,7 @@ namespace api.Helper
 
 
             CreateMap<Product, ProductViewDto>()
-                .ForMember(dest => dest.ProductType, opt => opt.MapFrom(src => src.Type));
+                .ForMember(dest => dest.HighestBid, opt => opt.MapFrom(src => src.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().Price));
 
             CreateMap<User, ProductOwnnerViewDto>();
 
@@ -41,6 +41,13 @@ namespace api.Helper
 
 
             CreateMap<ProductType, ProductTypeViewDto>();
+
+            CreateMap<ProductBid, ProductCartViewDto>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Product.Name))
+                .ForMember(dest => dest.HighestBid, opt => opt.MapFrom(src => src.Product.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().Price))
+                .ForMember(dest => dest.ProductPrices, opt => opt.MapFrom(src => src.Product.Prices))
+                .ForMember(dest => dest.MyBid, opt => opt.MapFrom(src => src.Price))
+                .ForMember(dest => dest.BiddingEndDate, opt=> opt.MapFrom(src => src.Product.BiddingEndDate));
 
             CreateMap<Product, ProductBiddingView>()
                 .ForMember( dest => dest.BiddingPrices, opt => opt.MapFrom( src => src.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().Price))

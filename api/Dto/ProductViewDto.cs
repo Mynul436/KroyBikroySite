@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using core.Entities;
 
 namespace api.Dto
 {
@@ -9,17 +10,26 @@ namespace api.Dto
     {
         public int Id {get; set;}
         public string Name{get;set;}
-        public int Remaining {get;set;}
-        public string Discription{get;set;}
+        public string Description{get;set;}
         public double Prices {get;set;}
-        public DateTime UsedTime {get;set;}
-        public DateTime BiddingDuration{get;set;}
-        public ICollection<String> ProductPhotos { get; set; } = new List<string>();
-       
+        public double HighestBid {get;set;}
+        public int TypeId {get;set;}
+        public string TypeName {get;set;}  
 
-        public ProductTypeViewDto ProductType {get;set;} = null!;
-        public ICollection<ProductBiddingViewDto>? ProductBidding {get;set;}
-        public ICollection<ProductRatingViewDto> ProductRatting{get;set;}
-        public ProductOwnnerViewDto ProductOwnner{get;set;}
+        public DateTime BuyingDate {get;set;}
+        public DateTime BiddingEndDate {get;set;}
+
+        public string District {get;set;}
+        public string SubDistrict {get;set;}
+        public string Address {get;set;}
+
+        public ICollection<string> Photos { get; set; }        
+        
+        public ProductOwnnerViewDto Ownner {get;set;}
+
+
+
+
+
     }
 }

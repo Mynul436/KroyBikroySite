@@ -55,25 +55,27 @@ namespace api.Controllers.Users
         {
             var product = await _unitOfWork.ProductRepository.GetProductById(Id);
 
-            var viewProduct = _mapper.Map<ProductViewDto>(product);
+             var viewProduct = _mapper.Map<ProductViewDto>(product);
 
 
-            viewProduct.ProductOwnner = _mapper.Map<ProductOwnnerViewDto>(product.Ownner);
+            // viewProduct.ProductOwnner = _mapper.Map<ProductOwnnerViewDto>(product.Ownner);
 
-            viewProduct.ProductBidding = _mapper.Map<List<ProductBiddingViewDto>>(product.Biddings);
-
-
-            List<Expression<Func<ProductRatting, object>>> includeExpression = new List<Expression<Func<ProductRatting, object>>>();
-
-            includeExpression.Add(filter => filter.User);
-            includeExpression.Add(filter => filter.Product);
-
-            viewProduct.ProductRatting = _mapper.Map<List<ProductRatingViewDto>>(await _unitOfWork.ProductRating.FindAsync(filter => filter.ProductId == Id, includeExpression));
+            // viewProduct.ProductBidding = _mapper.Map<List<ProductBiddingViewDto>>(product.Biddings);
 
 
+            // List<Expression<Func<ProductRatting, object>>> includeExpression = new List<Expression<Func<ProductRatting, object>>>();
+
+            // includeExpression.Add(filter => filter.User);
+            // includeExpression.Add(filter => filter.Product);
+
+            // viewProduct.ProductRatting = _mapper.Map<List<ProductRatingViewDto>>(await _unitOfWork.ProductRating.FindAsync(filter => filter.ProductId == Id, includeExpression));
+
+            viewProduct.Photos = new List<string>();
+
+            
             foreach (var photo in product.Photos)
             {
-                viewProduct.ProductPhotos.Add(photo.Url);
+                viewProduct.Photos.Add(photo.Url);
             }
 
             return Ok(new Response<ProductViewDto>(viewProduct));

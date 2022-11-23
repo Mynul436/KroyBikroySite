@@ -46,6 +46,31 @@ namespace infrastructure.Database.Repository
             return product;
         }
 
+        public async Task<PagedList<ProductBid>> userProductCart(int userId, PaginationParams userParams)
+        {
+
+            var query = _context.ProductBids.AsQueryable();
+            query = query.Where(filter => filter.UserId == userId);
+            query = query.Include(x => x.Product).ThenInclude(x => x.Biddings);
+
+
+      
+            // query = query.Where( x => true );
+            // query = query.Include(x => x.Biddings).Where( filter => filter.)
+
+            // query = (userParams.Name == "asc") ? query.OrderBy(product => product.Prices) : query.OrderByDescending( product => product.Prices);
+
+            // if(userParams.TypeId != -1) query = query.Where( product => product.TypeId == userParams.TypeId);
+
+            // if(userParams.Name != "-1") query = query.Where(product => product.Name.Contains(userParams.Name));
+
+            // query = query.Include(type => type.Type).Include(photo => photo.Photos);
+            // query = query.Include(bid => bid.Biddings);
+
+            return await PagedList<ProductBid>.CreateAsync(query, 
+                    userParams.PageNumber, userParams.PageSize);
+        }
+
         public async Task<Object> newsFeed()
         {
             var products = await _context.Products
@@ -67,6 +92,7 @@ namespace infrastructure.Database.Repository
             var maxPrices = userParams.HighPrices;
 
             query = query.Where( prices => prices.Prices >= minPrices && prices.Prices <= maxPrices);
+         //   query = query.Where( product => product.BiddingStatus == true);
 
             query = (userParams.Name == "asc") ? query.OrderBy(product => product.Prices) : query.OrderByDescending( product => product.Prices);
 
