@@ -44,9 +44,30 @@ namespace api.Controllers.Users
         [Route("product-payment")]
         public async Task<IActionResult> ProductPayment()
         {
-            var payment = await _unitOfWork.PaymentRequest.FindAsync(filter => filter.CustomerId == User.GetUserId());
+            var payments = await _unitOfWork.PaymentRequest.FindAsync(filter => filter.CustomerId == User.GetUserId());
             
-            return Ok(payment);
+            var products = new List<ViewProductPaymentDto>();
+
+            foreach(var payment in payments){
+                var product = new ViewProductPaymentDto{
+                    Id = payment.ProductId,
+                    Price = payment.Prices,
+                };
+
+                var _p = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == payment.ProductId);
+
+                var _u = await _unitOfWork.UserRepository.FindOneAsync(filter => filter.Id == _p.OwnnerId);
+
+                product.Ownner = new ProductOwnnerViewDto();
+                product.ProductName = _p.Name;
+                product.Ownner.Name = _u.Name;
+                product.Ownner.Email = _u.Email;
+                product.Ownner.Phone = _u.Phone;
+                product.Ownner.Id = _u.Id;
+                products.Add(product);
+            
+            }
+            return Ok(products);
         }
 
         
