@@ -102,7 +102,7 @@ namespace api.Controllers.Users
 
           _unitOfWork.ProductBidRepository.RemoveAsync(myBid);
           _unitOfWork.PaymentRequest.RemoveAsync(paymenres);
-          
+
           await _unitOfWork.CommitAsync(); 
         
             return Ok();

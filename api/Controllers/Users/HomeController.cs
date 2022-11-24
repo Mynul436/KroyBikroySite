@@ -105,7 +105,8 @@ namespace api.Controllers.Users
 
             var paymentRequest = new PaymentRequest{
                 Product = product,
-                Customer = user
+                Customer = user,
+                Prices = paymentReqest.Prices
             };
 
 
