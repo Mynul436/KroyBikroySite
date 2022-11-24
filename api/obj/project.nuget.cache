@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "F4aMusKV0asgAL0aLyWB29lSuo43LA0MolnAQlDdJaM3L9nAO9k4GKWScUFaE9K/grQSMxBuVQqjnZrupVaeCw==",
-  "success": false,
+  "dgSpecHash": "PDhCleAZF2N6SWlHhscodRoWNDZ+l1ZTbEFTr6/wCn3hJRKBTtOhDr1BsTOkSrGUPSMWTSv2zEDB1pIqkmsWkA==",
+  "success": true,
   "projectFilePath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mynul\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
@@ -34,14 +34,19 @@
     "C:\\Users\\mynul\\.nuget\\packages\\microsoft.extensions.objectpool\\2.2.0\\microsoft.extensions.objectpool.2.2.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
-    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.10.0\\microsoft.identitymodel.jsonwebtokens.6.10.0.nupkg.sha512",
-    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.logging\\6.10.0\\microsoft.identitymodel.logging.6.10.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.25.0\\microsoft.identitymodel.abstractions.6.25.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.25.0\\microsoft.identitymodel.jsonwebtokens.6.25.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.logging\\6.25.0\\microsoft.identitymodel.logging.6.25.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
-    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.25.0\\microsoft.identitymodel.tokens.6.25.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.2\\pomelo.entityframeworkcore.mysql.6.0.2.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
@@ -49,29 +54,13 @@
     "C:\\Users\\mynul\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "C:\\Users\\mynul\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.10.0\\system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.25.0\\system.identitymodel.tokens.jwt.6.25.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
-    "C:\\Users\\mynul\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+    "C:\\Users\\mynul\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
+    "C:\\Users\\mynul\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1105",
-      "level": "Error",
-      "message": "Unable to find project information for 'E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
-      "libraryId": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

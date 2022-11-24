@@ -23,16 +23,15 @@ namespace api.Controllers.Users
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        [HttpGet]
-        [Route("Profile")]
+        //[HttpGet]
+        //[Route("Profile")]
 
-        public async Task<IActionResult> GetAlluser()
-        {
-            var user = await _unitOfWork.UserRepository
-                .FindOneAsync(filter => filter.Id == User.GetUserId());
-        return Ok(user);
+        //public async Task<IActionResult> Getuser()
+        //{
+        //    var user = await _unitOfWork.UserRepository.FindOneAsync(filter => filter.Id == User.GetUserId());
+        //return Ok(user);
         
-        }
+        //}
 
 
     }

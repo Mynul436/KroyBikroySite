@@ -94,6 +94,8 @@ namespace api.Controllers.Users
             return Ok();
         }
 
+       
+
         [HttpGet]
         [Route("Type-list")]
         public async Task<IActionResult> GetTypes()
@@ -118,7 +120,8 @@ namespace api.Controllers.Users
         [Route("product")]
         public async Task<IActionResult> GetProduct(int Id)
         {
-            var product = await _unitOfWork.ProductRepository.GetProductById(Id);
+            var product = await _unitOfWork.ProductRepository
+                .GetProductById(Id);
 
              var viewProduct = _mapper.Map<ProductViewDto>(product);
 

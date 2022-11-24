@@ -16,5 +16,9 @@ namespace api.Dto
         public DateTime BuyingDate {get;set;}
         public DateTime BiddingEndDate {get;set;}
         public HighBidInfoDto HighBidInfo {get;set;}
+
+        
+        public Boolean BiddingStatus {get;set;}
+        public Boolean PaymentStatus {get;set;}
     }
 }
