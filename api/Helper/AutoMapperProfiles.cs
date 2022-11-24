@@ -58,7 +58,7 @@ namespace api.Helper
 
             CreateMap<Product, myAddProductViewDto>();
             
-
+            CreateMap<AddPaymentDto, ProductSold>();
 
             CreateMap<Product, ProductBiddingView>()
                 .ForMember( dest => dest.BiddingPrices, opt => opt.MapFrom( src => src.Biddings.OrderByDescending(x => x.Price).FirstOrDefault().Price))

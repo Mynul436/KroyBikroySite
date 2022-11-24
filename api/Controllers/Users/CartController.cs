@@ -65,6 +65,7 @@ namespace api.Controllers.Users
                 product.Ownner.Email = _u.Email;
                 product.Ownner.Phone = _u.Phone;
                 product.Ownner.Id = _u.Id;
+                product.Price = payment.Prices;
                 products.Add(product);
             
             }
@@ -83,13 +84,26 @@ namespace api.Controllers.Users
             var payment = _mapper.Map<ProductSold>(product);
 
             
-
+            _unitOfWork.ProductSold.AddAsync(payment);
             _unitOfWork.ProductRepository.UpdateAsync(product);
             await _unitOfWork.CommitAsync();
             return Ok();
         }
 
       
+
+        [HttpDelete]
+        [Route("cancle-order")]
+        public async Task<IActionResult> DeleteOrder(int productId)
+        {
+          var myBid = await _unitOfWork.ProductBidRepository.FindOneAsync( filter => filter.UserId == User.GetUserId() && filter.ProductId == productId );
+
+          _unitOfWork.ProductBidRepository.RemoveAsync(myBid);
+          await _unitOfWork.CommitAsync(); 
+        
+            return Ok();
+
+        }
 
 
     }

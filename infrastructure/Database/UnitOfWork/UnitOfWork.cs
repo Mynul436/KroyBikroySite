@@ -31,6 +31,7 @@ namespace infrastructure.Database.UnitOfWork
 
         public IRepository<PaymentRequest> PaymentRequest => new Repository<PaymentRequest>(_context);
 
+        public IRepository<ProductSold> ProductSold => new Repository<ProductSold>(_context);
         public async Task CommitAsync()
         {
             await _context.SaveChangesAsync();
