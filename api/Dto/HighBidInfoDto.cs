@@ -11,5 +11,7 @@ namespace api.Dto
         public double Price {get;set;}
         public string Name{get;set;}
         public int UserId {get;set;}
+
+        public bool requstInfo {get;set;} = false;
     }
 }

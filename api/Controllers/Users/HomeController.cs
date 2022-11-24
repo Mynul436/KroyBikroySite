@@ -42,7 +42,18 @@ namespace api.Controllers.Users
 
             for(int i = 0; i < products.Count(); i++)
             {
-                MyProducts[i].HighBidInfo = _mapper.Map<HighBidInfoDto>(products[i].Biddings.OrderByDescending(x => x.Price).SingleOrDefault());
+                  try{
+                        MyProducts[i].HighBidInfo = _mapper.Map<HighBidInfoDto>(products[i].Biddings.OrderByDescending(x => x.Price).FirstOrDefault());
+
+
+                        if(await _unitOfWork.PaymentRequest.isExitAsync(filter => filter.CustomerId == MyProducts[i].HighBidInfo.UserId && filter.ProductId == MyProducts[i].Id))  {
+                            MyProducts[i].HighBidInfo.requstInfo = true;
+                        }
+                  }
+                  catch{
+
+                  }
+                    
             }
             
 
@@ -86,6 +97,7 @@ namespace api.Controllers.Users
 
             if(!await _unitOfWork.ProductRepository.isExitAsync(filter => filter.Id == paymentReqest.ProductId && filter.OwnnerId == User.GetUserId())   &&   !await _unitOfWork.ProductBidRepository.isExitAsync(filter => filter.ProductId == paymentReqest.ProductId && filter.UserId == paymentReqest.CustomerId)) return BadRequest();
 
+          
 
             var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == paymentReqest.ProductId);
 

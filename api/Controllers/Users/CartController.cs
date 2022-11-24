@@ -44,8 +44,8 @@ namespace api.Controllers.Users
         [Route("product-payment")]
         public async Task<IActionResult> ProductPayment()
         {
-
             var payment = await _unitOfWork.PaymentRequest.FindAsync(filter => filter.CustomerId == User.GetUserId());
+            
             return Ok(payment);
         }
 
@@ -54,7 +54,7 @@ namespace api.Controllers.Users
         [Route("payment")]
         public async Task<IActionResult> Payment(AddPaymentDto paymentDto)
         {
-
+            
             return Ok();
         }
 
