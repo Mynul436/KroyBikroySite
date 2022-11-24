@@ -6,6 +6,7 @@ using api.Dto;
 using api.Extensions;
 using api.Helper;
 using AutoMapper;
+using core.Entities;
 using core.Helpers;
 using core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -76,6 +77,15 @@ namespace api.Controllers.Users
         public async Task<IActionResult> Payment(AddPaymentDto paymentDto)
         {
             
+            var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == paymentDto.ProductId);
+            product.PaymentStatus = true;
+
+            var payment = _mapper.Map<ProductSold>(product);
+
+            
+
+            _unitOfWork.ProductRepository.UpdateAsync(product);
+            await _unitOfWork.CommitAsync();
             return Ok();
         }
 
