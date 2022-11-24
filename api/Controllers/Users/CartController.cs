@@ -100,6 +100,12 @@ namespace api.Controllers.Users
 
           var paymenres = await _unitOfWork.PaymentRequest.FindOneAsync(filter => filter.CustomerId == User.GetUserId() && filter.ProductId == productId);
 
+          var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.Id == paymenres.ProductId);
+          
+          product.BiddingStatus = true;
+
+          _unitOfWork.ProductRepository.UpdateAsync(product);
+          
           _unitOfWork.ProductBidRepository.RemoveAsync(myBid);
           _unitOfWork.PaymentRequest.RemoveAsync(paymenres);
 
