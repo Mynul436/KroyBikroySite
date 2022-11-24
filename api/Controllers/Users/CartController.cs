@@ -40,6 +40,14 @@ namespace api.Controllers.Users
         }
 
 
+        [HttpGet]
+        [Route("product-payment")]
+        public async Task<IActionResult> ProductPayment()
+        {
+
+            
+        }
+
         
         [HttpPost]
         [Route("payment")]
@@ -49,7 +57,7 @@ namespace api.Controllers.Users
             return Ok();
         }
 
-
+      
 
 
     }

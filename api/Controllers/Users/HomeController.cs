@@ -65,6 +65,19 @@ namespace api.Controllers.Users
             return Ok();
         }
 
+        [HttpPut]
+        [Route("on-bidding")]
+        public async Task<IActionResult> OnBidding(int productId)
+        {
+            var product = await _unitOfWork.ProductRepository.FindOneAsync(filter => filter.OwnnerId == User.GetUserId() && filter.Id==productId);
+            if(product == null) return BadRequest();
+
+            product.BiddingStatus = true;
+            _unitOfWork.ProductRepository.UpdateAsync(product);
+            await _unitOfWork.CommitAsync();
+
+            return Ok();
+        }
       
         [HttpPost]
         [Route("send-payment-request")]

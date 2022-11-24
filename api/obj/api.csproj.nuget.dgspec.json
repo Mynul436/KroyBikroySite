@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj": {}
+    "e:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj": {}
   },
   "projects": {
-    "E:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj": {
+    "e:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj",
+        "projectUniqueName": "e:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj",
+        "projectPath": "e:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj",
         "packagesPath": "C:\\Users\\mynul\\.nuget\\packages\\",
-        "outputPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\api\\obj\\",
+        "outputPath": "e:\\Swe3.2\\Project350\\KroyBikroySite\\api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -25,8 +25,6 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -36,8 +34,8 @@
               "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj": {
                 "projectPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\core\\core.csproj"
               },
-              "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj": {
-                "projectPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj"
+              "e:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj": {
+                "projectPath": "e:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj"
               }
             }
           }
@@ -75,6 +73,10 @@
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
               "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -198,14 +200,14 @@
         }
       }
     },
-    "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj": {
+    "e:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj",
+        "projectUniqueName": "e:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj",
         "projectName": "infrastructure",
-        "projectPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj",
+        "projectPath": "e:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\infrastructure.csproj",
         "packagesPath": "C:\\Users\\mynul\\.nuget\\packages\\",
-        "outputPath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\obj\\",
+        "outputPath": "e:\\Swe3.2\\Project350\\KroyBikroySite\\infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
