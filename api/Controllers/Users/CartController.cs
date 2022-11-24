@@ -98,7 +98,11 @@ namespace api.Controllers.Users
         {
           var myBid = await _unitOfWork.ProductBidRepository.FindOneAsync( filter => filter.UserId == User.GetUserId() && filter.ProductId == productId );
 
+          var paymenres = await _unitOfWork.PaymentRequest.FindOneAsync(filter => filter.CustomerId == User.GetUserId() && filter.ProductId == productId);
+
           _unitOfWork.ProductBidRepository.RemoveAsync(myBid);
+          _unitOfWork.PaymentRequest.RemoveAsync(paymenres);
+          
           await _unitOfWork.CommitAsync(); 
         
             return Ok();
