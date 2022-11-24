@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SL9ojYyoFcCDKaCyyxvng/ANMuaSB6rxe9/lOdgYhgKlhKr+Izz65n64GDs2aurnwPgJQu2ECe/vmK/P5O7Spg==",
+  "dgSpecHash": "AXPe/pgF3jG2YHZoofsUwel2rwcqmFDpbaN6Q779pkbMuMxgE7sM3ZUNKo0rxa5KuzxFZ6Sgx6kEHnTLg+GNtw==",
   "success": true,
-  "projectFilePath": "e:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj",
+  "projectFilePath": "E:\\Swe3.2\\Project350\\KroyBikroySite\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mynul\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\mynul\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",

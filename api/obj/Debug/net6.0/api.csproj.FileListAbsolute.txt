@@ -258,3 +258,4 @@ E:\Swe3.2\Project350\KroyBikroySite\api\obj\Debug\net6.0\api.csproj.CopyComplete
 E:\Swe3.2\Project350\KroyBikroySite\api\obj\Debug\net6.0\api.genruntimeconfig.cache
 E:\Swe3.2\Project350\KroyBikroySite\api\obj\Debug\net6.0\ref\api.dll
 E:\Swe3.2\Project350\KroyBikroySite\api\obj\Debug\net6.0\api.MvcApplicationPartsAssemblyInfo.cs
+E:\Swe3.2\Project350\KroyBikroySite\api\bin\Debug\net6.0\System.Net.WebSockets.WebSocketProtocol.dll

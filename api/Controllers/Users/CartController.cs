@@ -45,7 +45,8 @@ namespace api.Controllers.Users
         public async Task<IActionResult> ProductPayment()
         {
 
-            
+            var payment = await _unitOfWork.PaymentRequest.FindAsync(filter => filter.CustomerId == User.GetUserId());
+            return Ok(payment);
         }
 
         
